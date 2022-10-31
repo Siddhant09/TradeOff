@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TradeOff.Views.SignInPage">
+             x:Class="TradeOff.Views.SignInPage"
+             NavigationPage.HasBackButton="False">
     
     <VerticalStackLayout
             Spacing="25"
             Padding="10,0"
             VerticalOptions="Center">
         <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
+                Source="logo.png"
+                HeightRequest="300"
                 HorizontalOptions="Center" />
         
         <Label 
@@ -20,12 +20,15 @@
 
         <Entry 
             x:Name="txtEmail"
-            Placeholder="Email" />
+            Placeholder="Email" 
+            Keyboard="Email"
+            Text="siddhant.c09@gmail.com"/>
         
         <Entry 
             x:Name="txtPassword"
             Placeholder="Password"
-            IsPassword="True" />
+            IsPassword="True" 
+            Text="Password"/>
 
         <Button 
             x:Name="btnSignIn"

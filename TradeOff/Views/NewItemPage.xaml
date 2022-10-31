@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TradeOff.Views.NewItemPage"
+             Title="New Item">
+    
+    <ScrollView>
+        <VerticalStackLayout
+                Spacing="25"
+                Padding="10,0">
+
+            <Entry
+                x:Name="txtTitle"
+                Placeholder="Enter Title"/>
+
+            <Editor
+                x:Name="txtDescription"
+                AutoSize="TextChanges"
+                Placeholder="Enter Desctiption"/>
+
+            <Picker x:Name="ddlCategory"
+                Title="--Select Category--">
+                <Picker.Items>
+                    <x:String>Furniture</x:String>
+                    <x:String>Electronic</x:String>
+                    <x:String>Accessory</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Picker x:Name="ddlAge"
+                Title="--Select Age--">
+                <Picker.Items>
+                    <x:String>Less than a Month</x:String>
+                    <x:String>1 to 3 Months</x:String>
+                    <x:String>4 to 6 Months</x:String>
+                    <x:String>6 to 9 Months</x:String>
+                    <x:String>9 to 12 Months</x:String>
+                    <x:String>More than 12 Months</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Picker x:Name="ddlCondition"
+                Title="--Select Condition--">
+                <Picker.Items>
+                    <x:String>Excellent</x:String>
+                    <x:String>Good</x:String>
+                    <x:String>Poor</x:String>
+                    <x:String>Bad</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Entry
+                x:Name="txtTags"
+                Placeholder="Enter Tags (comma separated)"/>
+
+            <Button
+                x:Name="btnUpload"
+                Text="Upload Images"
+                Clicked="btnUpload_Clicked"/>
+
+            <Button
+                x:Name="btnSave"
+                Text="Save"
+                Clicked="btnSave_Clicked"/>
+
+            <Button
+                x:Name="btnCancel"
+                Text="Cancel"
+                BackgroundColor="Red"
+                TextColor="White"
+                Clicked="btnCancel_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

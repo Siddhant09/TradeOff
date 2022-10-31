@@ -9,33 +9,38 @@
     <TabBar>
     <ShellContent
         ContentTemplate="{DataTemplate local:SignInPage}"
-        Route="MainPage" />
+        Route="SignInPage" />
     </TabBar>
 
     <TabBar>
         <ShellContent
-        Title="Inventory"
-        ContentTemplate="{DataTemplate local:InventoryPage}"
-        Route="InventoryPage" />
+            Title="Inventory"
+            Icon="inventory.png"
+            ContentTemplate="{DataTemplate local:InventoryPage}"
+            Route="InventoryPage" />
         
         <ShellContent
-        Title="Requests"
-        ContentTemplate="{DataTemplate local:RequestsPage}"
-        Route="RequestsPage" />
+            Title="Requests"
+            Icon="requests.png"
+            ContentTemplate="{DataTemplate local:RequestsPage}"
+            Route="RequestsPage" />
         
         <ShellContent
-        Title="Browse"
-        ContentTemplate="{DataTemplate local:BrowsePage}"
-        Route="BrowsePage" />
+            Title="Dashboard"
+            Icon="dashboard.png"
+            ContentTemplate="{DataTemplate local:DashboardPage}"
+            Route="DashboardPage" />
         
         <ShellContent
-        Title="History"
-        ContentTemplate="{DataTemplate local:HistoryPage}"
-        Route="HistoryPage" />
+            Title="Browse"
+            Icon="browse.png"
+            ContentTemplate="{DataTemplate local:BrowsePage}"
+            Route="BrowsePage" />
 
         <ShellContent
-        Title="Profile"
-        ContentTemplate="{DataTemplate local:ProfilePage}"
-        Route="ProfilePage" />
+            Title="Profile"
+            Icon="profile.png"
+            ContentTemplate="{DataTemplate local:ProfilePage}"
+            Route="ProfilePage" />
     </TabBar>
 </Shell>

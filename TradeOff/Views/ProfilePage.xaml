@@ -6,12 +6,45 @@
     <ScrollView>
         <VerticalStackLayout
                 Spacing="25"
-                Padding="10,0"
-                VerticalOptions="Center">
+                Padding="10,0">
+            
             <Label 
-                Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" 
+                Text="Hello, Siddhant!"/>
+            <Image
+                Source="user_profile.png"
+                SemanticProperties.Description="Profile picture"
+                HeightRequest="200"
                 HorizontalOptions="Center" />
+
+            <Entry 
+                x:Name="txtFirstName"
+                Placeholder="First Name" 
+                Text="Siddhant "/>
+
+            <Entry 
+                x:Name="txtLastName"
+                Placeholder="Last Name" 
+                Text="Chawade" />
+
+            <Entry 
+                x:Name="txtEmail"
+                Placeholder="Email" 
+                Keyboard="Email"
+                Text="siddhant.c09@gmail.com" />
+
+            <Button 
+                x:Name="btnUpdate"
+                Text="Update Profile" Clicked="btnUpdate_Clicked" />
+
+            <Button 
+                x:Name="btnHistory"
+                Text="View History" Clicked="btnHistory_Clicked" />
+
+            <Button x:Name="btnLogout"
+                    Text="Logout"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="btnLogout_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

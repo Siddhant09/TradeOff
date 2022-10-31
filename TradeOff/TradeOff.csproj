@@ -49,6 +49,45 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add.png" />
+	  <None Remove="Resources\Images\browse.png" />
+	  <None Remove="Resources\Images\dashboard.png" />
+	  <None Remove="Resources\Images\delete.png" />
+	  <None Remove="Resources\Images\dislike.png" />
+	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\history.png" />
+	  <None Remove="Resources\Images\i1_1.jpg" />
+	  <None Remove="Resources\Images\i1_2.jpg" />
+	  <None Remove="Resources\Images\i1_3.jpg" />
+	  <None Remove="Resources\Images\i2_1.jpg" />
+	  <None Remove="Resources\Images\i2_2.jpg" />
+	  <None Remove="Resources\Images\i3_1.jpg" />
+	  <None Remove="Resources\Images\i4_1.jpg" />
+	  <None Remove="Resources\Images\i4_2.jpg" />
+	  <None Remove="Resources\Images\i5_1.jpg" />
+	  <None Remove="Resources\Images\i5_2.jpg" />
+	  <None Remove="Resources\Images\i6_1.jpg" />
+	  <None Remove="Resources\Images\i6_2.jpg" />
+	  <None Remove="Resources\Images\i7_1.jpg" />
+	  <None Remove="Resources\Images\i7_2.jpg" />
+	  <None Remove="Resources\Images\inventory.png" />
+	  <None Remove="Resources\Images\like.png" />
+	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\pro.png" />
+	  <None Remove="Resources\Images\profile.png" />
+	  <None Remove="Resources\Images\requests.png" />
+	  <None Remove="Resources\Images\trade.png" />
+	  <None Remove="Resources\Images\user_profile.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="C:\Users\Siddhant Chawade\Downloads\app_icon.jpg">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
 	</ItemGroup>
 
@@ -56,10 +95,19 @@
 	  <MauiXaml Update="Views\BrowsePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\DashboardPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EmailVerificationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\HistoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\InventoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewItemPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProfilePage.xaml">

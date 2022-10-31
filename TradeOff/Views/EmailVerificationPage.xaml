@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TradeOff.Views.EmailVerificationPage"
+             Title="Email Verification">
+
+    <VerticalStackLayout
+            Spacing="25"
+            Padding="10,0"
+            VerticalOptions="Center">
+        <Image
+                Source="logo.png"
+                HeightRequest="300"
+                HorizontalOptions="Center" />
+
+        <Label 
+            Text="A verification code has been sent to your eamil. Please enter the code."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry 
+            x:Name="tXtCode"
+            Placeholder="Verification Code"
+            Keyboard="Numeric"/>
+
+        <Button 
+            x:Name="btnVerify"
+            Text="Verify" Clicked="btnVerify_Clicked" />
+    </VerticalStackLayout>
+</ContentPage>

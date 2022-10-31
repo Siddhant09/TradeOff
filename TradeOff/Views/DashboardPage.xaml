@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TradeOff.Views.DashboardPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+                Spacing="25"
+                Padding="10,0">
+
+            <Picker x:Name="ddlDateRange"
+                Title="--Select--">
+                <Picker.Items>
+                    <x:String>Last 7 Days</x:String>
+                    <x:String>Last 30 Days</x:String>
+                    <x:String>All Time</x:String>
+                </Picker.Items>
+            </Picker>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
