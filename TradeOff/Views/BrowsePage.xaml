@@ -5,10 +5,11 @@
 
     <CarouselView 
         ItemsSource="{Binding .}" 
-                  Loop="False"
-                  EmptyView="No items to display.">
+        Loop="False"
+        EmptyView="No items to display.">
         <CarouselView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical"  />
+            <LinearItemsLayout 
+                Orientation="Vertical"  />
         </CarouselView.ItemsLayout>
         <CarouselView.ItemTemplate>
             <DataTemplate>
@@ -19,8 +20,9 @@
                     <StackLayout>
                         <StackLayout 
                             Orientation="Horizontal">
-                            <Image Source="{Binding UserPicUrl}"
-                                   HeightRequest="50"/>
+                            <Image 
+                                Source="{Binding UserPicUrl}"
+                                HeightRequest="50"/>
                             <StackLayout 
                                 Orientation="Vertical"
                                 Margin="5"
@@ -30,14 +32,18 @@
                                     FontAttributes="Bold"/>
                                 <Label 
                                     Text="{Binding Date}"
+                                    FontSize="Caption"
                                     FontAttributes="Italic"/>
                             </StackLayout>
                         </StackLayout>
-                        <CarouselView ItemsSource="{Binding Images}" IndicatorView="{x:Reference indicatorView}">
+                        <CarouselView 
+                            ItemsSource="{Binding Images}" 
+                            IndicatorView="{x:Reference indicatorView}">
                             <CarouselView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout>
-                                        <Image Source="{Binding ImageUrl}"
+                                        <Image 
+                                            Source="{Binding ImageUrl}"
                                             Aspect="AspectFill"
                                             HeightRequest="450"
                                             WidthRequest="400"
@@ -46,58 +52,66 @@
                                 </DataTemplate>
                             </CarouselView.ItemTemplate>
                         </CarouselView>
-                        <IndicatorView x:Name="indicatorView"
-                               HorizontalOptions="Center"
-                                       Margin="5"/>
+                        <IndicatorView 
+                            x:Name="indicatorView"
+                            HorizontalOptions="Center"
+                            Margin="5"/>
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems>
-                                    <SwipeItem x:Name="btnRequest"
+                                    <SwipeItem 
+                                        x:Name="btnRequest"
                                         Text="Request Trade" 
-                                               Clicked="btnRequest_Clicked"
-                                   IconImageSource="trade.png"
-                                   BackgroundColor="LightBlue"/>
+                                        Clicked="btnRequest_Clicked"
+                                        IconImageSource="trade.png"
+                                        BackgroundColor="LightBlue"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
                             <SwipeView.LeftItems>
                                 <SwipeItems>
-                                    <SwipeItem x:Name="btnLike"
+                                    <SwipeItem 
+                                        x:Name="btnLike"
                                         Text="Like" 
-                                   IconImageSource="like.png"
-                                   BackgroundColor="LightGreen"/>
-                                    <SwipeItem x:Name="btnDislike"
+                                        IconImageSource="like.png"
+                                        BackgroundColor="LightGreen"/>
+                                    <SwipeItem 
+                                        x:Name="btnDislike"
                                         Text="Dislike" 
-                                   IconImageSource="dislike.png"
-                                   BackgroundColor="OrangeRed"/>
+                                        IconImageSource="dislike.png"
+                                        BackgroundColor="OrangeRed"/>
                                 </SwipeItems>
                             </SwipeView.LeftItems>
                             <StackLayout>
-                                <Label Text="{Binding Title}"
-                               FontAttributes="Bold"
-                                       Margin="5"
-                               FontSize="18" />
-                                <Label Text="{Binding Description}"
-                               MaxLines="2"
-                                       Margin="5"
-                               LineBreakMode="WordWrap" />
-                                <Label Text="{Binding Details}"
-                                       Margin="5"/>
-                                <Label Text="{Binding Like}"
-                                       Margin="5"/>
-
-                                <CollectionView  
-                            ItemsSource="{Binding TagList}">
+                                <Label 
+                                    Text="{Binding Title}"
+                                    FontAttributes="Bold"
+                                    Margin="5"
+                                    FontSize="18" />
+                                <Label 
+                                    Text="{Binding Description}"
+                                    MaxLines="2"
+                                    Margin="5"
+                                    LineBreakMode="WordWrap" />
+                                <Label 
+                                    Text="{Binding Details}"
+                                    Margin="5"/>
+                                <Label
+                                    Text="{Binding Like}"
+                                    Margin="5"/>
+                                <CollectionView 
+                                    ItemsSource="{Binding TagList}">
                                     <CollectionView.ItemsLayout>
-                                        <LinearItemsLayout Orientation="Horizontal" />
+                                        <LinearItemsLayout 
+                                            Orientation="Horizontal" />
                                     </CollectionView.ItemsLayout>
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <Label 
-                                        Text="{Binding TagName}"
-                                        TextColor="White"
-                                        BackgroundColor="OrangeRed"
-                                        Margin="5"
-                                        Padding="5"/>
+                                            <Label
+                                                Text="{Binding TagName}"
+                                                TextColor="White"
+                                                BackgroundColor="OrangeRed"
+                                                Margin="5"
+                                                Padding="5"/>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>

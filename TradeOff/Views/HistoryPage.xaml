@@ -4,15 +4,216 @@
              x:Class="TradeOff.Views.HistoryPage"
              Title="History">
 
-    <ScrollView>
-        <VerticalStackLayout
-                Spacing="25"
-                Padding="10,0"
-                VerticalOptions="Center">
-            <Label 
-                Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </ScrollView>
+    <CarouselView 
+        ItemsSource="{Binding .}" 
+        Loop="False"
+        EmptyView="No items to display.">
+        <CarouselView.ItemsLayout>
+            <LinearItemsLayout 
+                Orientation="Vertical"  />
+        </CarouselView.ItemsLayout>
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <StackLayout>
+                        <StackLayout 
+                            Orientation="Horizontal">
+                            <Image 
+                                Source="{Binding IUserPicUrl}"
+                                HeightRequest="50"/>
+                            <StackLayout 
+                                Orientation="Vertical"
+                                Margin="5"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Center">
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    HorizontalOptions="Fill" 
+                                    VerticalOptions="Center">
+                                    <Label 
+                                        Text="{Binding IUserName}"
+                                        FontAttributes="Bold"/>
+                                    <Label 
+                                        TextColor="{Binding Color}"
+                                        Text="{Binding Status}"
+                                        HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <Label 
+                                    Text="{Binding IDate}"
+                                    FontSize="Caption"
+                                    FontAttributes="Italic"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Horizontal">
+                            <StackLayout
+                                Orientation="Vertical"
+                                WidthRequest="200">
+                                <CarouselView 
+                                    ItemsSource="{Binding IImages}" 
+                                    IndicatorView="{x:Reference indicatorView}">
+                                    <CarouselView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout>
+                                                <Image 
+                                                    Source="{Binding ImageUrl}"
+                                                    Aspect="AspectFill"
+                                                    HeightRequest="250"
+                                                    WidthRequest="200"
+                                                    HorizontalOptions="Center" />
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CarouselView.ItemTemplate>
+                                </CarouselView>
+                                <IndicatorView 
+                                    x:Name="indicatorView"
+                                    HorizontalOptions="Center"
+                                    Margin="5"/>
+                            </StackLayout>
+                            <StackLayout
+                                Orientation="Vertical"
+                                WidthRequest="200">
+                                <CarouselView 
+                                    ItemsSource="{Binding OImages}" 
+                                    IndicatorView="{x:Reference indicatorView1}">
+                                    <CarouselView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout>
+                                                <Image 
+                                                    Source="{Binding ImageUrl}"
+                                                    Aspect="AspectFill"
+                                                    HeightRequest="250"
+                                                    WidthRequest="200"
+                                                    HorizontalOptions="Center" />
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CarouselView.ItemTemplate>
+                                </CarouselView>
+                                <IndicatorView 
+                                    x:Name="indicatorView1"
+                                    HorizontalOptions="Center"
+                                    Margin="5"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout
+                                Orientation="Vertical">
+                            <StackLayout
+                                    Orientation="Horizontal">
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <Label 
+                                            Text="{Binding ITitle}"
+                                            FontAttributes="Bold"
+                                            Margin="5"
+                                            FontSize="18" />
+                                </StackLayout>
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <Label 
+                                            Text="{Binding OTitle}"
+                                            FontAttributes="Bold"
+                                            Margin="5"
+                                            FontSize="18" />
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout
+                                    Orientation="Horizontal">
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <Label 
+                                            Text="{Binding IDescription}"
+                                            MaxLines="5"
+                                            Margin="5"
+                                            LineBreakMode="WordWrap" />
+                                </StackLayout>
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <Label 
+                                            Text="{Binding ODescription}"
+                                            MaxLines="5"
+                                            Margin="5"
+                                            LineBreakMode="WordWrap" />
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout
+                                    Orientation="Horizontal">
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <Label 
+                                            Text="{Binding IDetails}"
+                                            Margin="5"/>
+                                </StackLayout>
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <Label 
+                                            Text="{Binding ODetails}"
+                                            Margin="5"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout
+                                    Orientation="Horizontal">
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <Label
+                                            Text="{Binding ILike}"
+                                            Margin="5"/>
+                                </StackLayout>
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <Label
+                                            Text="{Binding OLike}"
+                                            Margin="5"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout
+                                    Orientation="Horizontal">
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <CollectionView 
+                                            ItemsSource="{Binding ITagList}">
+                                        <CollectionView.ItemsLayout>
+                                            <LinearItemsLayout 
+                                                    Orientation="Vertical" />
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Label
+                                                        Text="{Binding TagName}"
+                                                        TextColor="White"
+                                                        BackgroundColor="OrangeRed"
+                                                        HorizontalOptions="Start"
+                                                        Margin="5"
+                                                        Padding="5"/>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                                <StackLayout
+                                        WidthRequest="200">
+                                    <CollectionView 
+                                            ItemsSource="{Binding OTagList}">
+                                        <CollectionView.ItemsLayout>
+                                            <LinearItemsLayout 
+                                                    Orientation="Vertical" />
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Label
+                                                        Text="{Binding TagName}"
+                                                        TextColor="White"
+                                                        BackgroundColor="OrangeRed"
+                                                        HorizontalOptions="Start"
+                                                        Margin="5"
+                                                        Padding="5"/>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
 </ContentPage>

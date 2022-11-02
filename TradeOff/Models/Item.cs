@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TradeOff.Models
+﻿namespace TradeOff.Models
 {
     public class Image
     {
@@ -14,7 +8,7 @@ namespace TradeOff.Models
     {
         public string TagName { get; set; }
     }
-    internal class Item
+    public class Item
     {
         public long? UserId { get; set; }
         public string UserName { get; set; }

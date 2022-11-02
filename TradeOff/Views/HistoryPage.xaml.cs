@@ -1,9 +1,15 @@
+using TradeOff.Models;
+
 namespace TradeOff.Views;
 
 public partial class HistoryPage : ContentPage
 {
-	public HistoryPage()
-	{
-		InitializeComponent();
-	}
+    Request _request;
+    public HistoryPage()
+    {
+        _request = new Request();
+        InitializeComponent();
+        IEnumerable<Request> requests = _request.GetRequests();
+        this.BindingContext = requests;
+    }
 }
