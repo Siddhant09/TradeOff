@@ -10,7 +10,8 @@
         EmptyView="No items to display.">
         <CarouselView.ItemsLayout>
             <LinearItemsLayout 
-                Orientation="Vertical"  />
+                Orientation="Vertical"
+                SnapPointsType="MandatorySingle"/>
         </CarouselView.ItemsLayout>
         <CarouselView.ItemTemplate>
             <DataTemplate>

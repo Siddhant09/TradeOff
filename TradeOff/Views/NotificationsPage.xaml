@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TradeOff.Views.NotificationsPage"
+             Title="Notifications">
+
+    <StackLayout
+        Orientation="Vertical">
+        <Button x:Name="btnDelete"
+                Margin="5"
+                Text="Delete All"
+                BackgroundColor="Red"
+                TextColor="White"
+                Clicked="btnDelete_Clicked"/>
+        <ListView    
+            ItemsSource="{Binding .}"
+            RowHeight="70"
+            SelectionMode="None"
+            VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            Orientation="Horizontal">
+                            <StackLayout 
+                                Orientation="Vertical"
+                                Margin="5"
+                                VerticalOptions="Center">
+                                <Label 
+                                    Text="{Binding UserName}"/>
+                                <Label 
+                                    Text="{Binding Message}"
+                                    FontAttributes="Bold"/>
+                                <Label 
+                                    Text="{Binding DateTime}"
+                                    FontSize="Caption"
+                                    FontAttributes="Italic"/>
+                            </StackLayout>
+                            <StackLayout
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="Center"
+                                Orientation="Horizontal">
+                                <Label
+                                    Padding="5"
+                                    Margin="10"
+                                    IsVisible="{Binding IsNew}"
+                                    Text="New"
+                                    TextColor="White"
+                                    BackgroundColor="OrangeRed"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

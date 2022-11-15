@@ -40,6 +40,16 @@
                 x:Name="btnHistory"
                 Text="View History" Clicked="btnHistory_Clicked" />
 
+            <Button 
+                x:Name="btnNew"
+                Text="Add New"
+                Clicked="btnNew_Clicked"/>
+
+            <Button 
+                x:Name="btnNotifications"
+                Text="Notifications"
+                Clicked="btnNotifications_Clicked"/>
+
             <Button x:Name="btnLogout"
                     Text="Logout"
                     BackgroundColor="Red"

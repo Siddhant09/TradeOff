@@ -41,4 +41,30 @@ public partial class ProfilePage : ContentPage
             await toast.Show();
         }
     }
+
+    private async void btnNew_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync($"{nameof(NewItemPage)}", true);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
+    }
+
+    private async void btnNotifications_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync($"{nameof(NotificationsPage)}", true);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
+    }
 }

@@ -16,6 +16,202 @@
                     <x:String>All Time</x:String>
                 </Picker.Items>
             </Picker>
+            <Label
+                Text="Most Liked Items"
+                FontAttributes="Italic"/>
+            <CarouselView 
+                ItemsSource="{Binding MostLiked}" 
+                Loop="False"
+                EmptyView="No items to display.">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout 
+                        Orientation="Horizontal"
+                        SnapPointsType="None"/>
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            WidthRequest="400">
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <StackLayout>
+                                    <Image
+                                        Source="{Binding PicUrl}"
+                                        WidthRequest="200"
+                                        HeightRequest="200"
+                                        Aspect="AspectFill"/>
+                                </StackLayout>
+                                <StackLayout
+                                    Orientation="Vertical"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="Center">
+                                    <Label
+                                        Text="{Binding Title}"
+                                        FontAttributes="Bold"
+                                        Margin="5"
+                                        FontSize="18"/>
+                                    <Label
+                                        FontSize="100"
+                                        VerticalOptions="End"
+                                        HorizontalOptions="CenterAndExpand"
+                                        FontAttributes="Bold"
+                                        TextColor="LightGreen"  
+                                        Text="{Binding Likes}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <Label
+                Text="Most Disliked Items"
+                FontAttributes="Italic"/>
+            <CarouselView 
+                ItemsSource="{Binding MostDisiked}" 
+                Loop="False"
+                EmptyView="No items to display.">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout 
+                        Orientation="Horizontal"
+                        SnapPointsType="None"/>
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            WidthRequest="400">
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <StackLayout>
+                                    <Image
+                                        Source="{Binding PicUrl}"
+                                        WidthRequest="200"
+                                        HeightRequest="200"
+                                        Aspect="AspectFill"/>
+                                </StackLayout>
+                                <StackLayout
+                                    Orientation="Vertical"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="Center">
+                                    <Label
+                                        Text="{Binding Title}"
+                                        FontAttributes="Bold"
+                                        Margin="5"
+                                        FontSize="18"/>
+                                    <Label
+                                        FontSize="100"
+                                        VerticalOptions="End"
+                                        HorizontalOptions="CenterAndExpand"
+                                        FontAttributes="Bold"
+                                        TextColor="OrangeRed"  
+                                        Text="{Binding Dislikes}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <Label
+                Text="Most Requested Items"
+                FontAttributes="Italic"/>
+            <CarouselView 
+                ItemsSource="{Binding MostRequested}" 
+                Loop="False"
+                EmptyView="No items to display.">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout 
+                        Orientation="Horizontal"
+                        SnapPointsType="None"/>
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            WidthRequest="400">
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <StackLayout>
+                                    <Image
+                                        Source="{Binding PicUrl}"
+                                        WidthRequest="200"
+                                        HeightRequest="200"
+                                        Aspect="AspectFill"/>
+                                </StackLayout>
+                                <StackLayout
+                                    Orientation="Vertical"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="Center">
+                                    <Label
+                                        Text="{Binding Title}"
+                                        FontAttributes="Bold"
+                                        Margin="5"
+                                        FontSize="18"/>
+                                    <Label
+                                        FontSize="100"
+                                        VerticalOptions="End"
+                                        HorizontalOptions="CenterAndExpand"
+                                        FontAttributes="Bold"
+                                        TextColor="LightBlue"  
+                                        Text="{Binding Requests}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <Label
+                Text="Most Trade Offs"
+                FontAttributes="Italic"/>
+                <ListView 
+                    ItemsSource="{Binding Users}"
+                    RowHeight="80"
+                    SelectionMode="None"
+                    VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <StackLayout
+                            Orientation="Horizontal">
+                            <Image 
+                                Source="{Binding UserPicUrl}"
+                                HeightRequest="50"/>
+                            <StackLayout 
+                                Orientation="Vertical"
+                                Margin="5"
+                                VerticalOptions="Center">
+                                <Label 
+                                    Text="{Binding UserName}"
+                                    FontAttributes="Bold"/>
+                                <Label 
+                                    Text="{Binding Date}"
+                                    FontSize="Caption"
+                                    FontAttributes="Italic"/>
+                            </StackLayout>
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Orientation="Horizontal">
+                                    <Label
+                                        Text="{Binding Likes}"
+                                        FontSize="40"
+                                        TextColor="LightGreen"/>
+                                    <Label
+                                        Text=" / "
+                                        FontSize="40"/>
+                                    <Label
+                                        Text="{Binding Dislikes}"
+                                        FontSize="40"
+                                        TextColor="OrangeRed"/>
+                                </StackLayout>
+                        </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

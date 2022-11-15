@@ -13,6 +13,7 @@
         public long? UserId { get; set; }
         public string UserName { get; set; }
         public string UserPicUrl { get; set; }
+        public string PicUrl { get; set; }
         public string Date { get; set; }
         public long? ItemId { get; set; }
         public string Title { get; set; }
@@ -27,6 +28,7 @@
         public string Tags { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
+        public int Requests { get; set; }
         public string Like { get; set; }
         public List<Image> Images { get; set; }
         public List<Tag> TagList { get; set; }
