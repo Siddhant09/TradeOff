@@ -15,6 +15,7 @@
         
         <Label 
             Text="Welcome to Trade Off!"
+            FontSize="Title"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 

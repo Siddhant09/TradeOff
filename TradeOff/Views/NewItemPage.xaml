@@ -2,7 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.NewItemPage"
-             Title="New Item">
+             Title="New Product">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                Text="New Product"
+                TextColor="White"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                FontSize="20"/>
+        </StackLayout>
+    </Shell.TitleView>
     
     <ScrollView>
         <VerticalStackLayout

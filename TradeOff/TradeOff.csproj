@@ -74,6 +74,7 @@
 	  <None Remove="Resources\Images\inventory.png" />
 	  <None Remove="Resources\Images\like.png" />
 	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\notification.png" />
 	  <None Remove="Resources\Images\pro.png" />
 	  <None Remove="Resources\Images\profile.png" />
 	  <None Remove="Resources\Images\requests.png" />

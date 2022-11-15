@@ -3,6 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.HistoryPage"
              Title="History">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                Text="History"
+                TextColor="White"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                FontSize="20"/>
+        </StackLayout>
+    </Shell.TitleView>
 
     <CarouselView 
         ItemsSource="{Binding .}" 

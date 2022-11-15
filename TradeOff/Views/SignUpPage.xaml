@@ -3,6 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.SignUpPage"
              Title="Sign Up">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                Text="Sign Up"
+                TextColor="White"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                FontSize="20"/>
+        </StackLayout>
+    </Shell.TitleView>
 
     <VerticalStackLayout
             Spacing="25"
@@ -16,6 +26,7 @@
         <Label 
             Text="Welcome to Trade Off!"
             VerticalOptions="Center" 
+            FontSize="Title"
             HorizontalOptions="Center" />
 
         <Entry 

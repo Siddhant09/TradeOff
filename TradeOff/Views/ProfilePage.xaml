@@ -2,6 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.ProfilePage">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                Text="Profile"
+                TextColor="White"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                FontSize="20"/>
+            <ImageButton
+                x:Name="btnNotification"
+                Source="notification.png"
+                HeightRequest="50"
+                HorizontalOptions="EndAndExpand"
+                Clicked="btnNotification_Clicked"/>
+        </StackLayout>
+    </Shell.TitleView>
 
     <ScrollView>
         <VerticalStackLayout
@@ -39,16 +55,6 @@
             <Button 
                 x:Name="btnHistory"
                 Text="View History" Clicked="btnHistory_Clicked" />
-
-            <Button 
-                x:Name="btnNew"
-                Text="Add New"
-                Clicked="btnNew_Clicked"/>
-
-            <Button 
-                x:Name="btnNotifications"
-                Text="Notifications"
-                Clicked="btnNotifications_Clicked"/>
 
             <Button x:Name="btnLogout"
                     Text="Logout"

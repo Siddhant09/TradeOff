@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Alerts;
 using TradeOff.Models;
 
 namespace TradeOff.Views;
@@ -16,5 +17,18 @@ public partial class BrowsePage : ContentPage
     private void btnRequest_Clicked(object sender, EventArgs e)
     {
 
+    }
+
+    private async void btnNotification_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync($"{nameof(NotificationsPage)}", true);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
     }
 }

@@ -2,6 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.DashboardPage">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                Text="Dashboard"
+                TextColor="White"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                FontSize="20"/>
+            <ImageButton
+                x:Name="btnNotification"
+                Source="notification.png"
+                HeightRequest="50"
+                HorizontalOptions="EndAndExpand"
+                Clicked="btnNotification_Clicked"/>
+        </StackLayout>
+    </Shell.TitleView>
 
     <ScrollView>
         <VerticalStackLayout

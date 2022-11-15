@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Alerts;
 using TradeOff.Models;
 
 namespace TradeOff.Views;
@@ -12,5 +13,18 @@ public partial class DashboardPage : ContentPage
         ddlDateRange.SelectedIndex = 0;
         Dashboard dash = _dashboard.GetDashboard();
         this.BindingContext = dash;
+    }
+
+    private async void btnNotification_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync($"{nameof(NotificationsPage)}", true);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
     }
 }

@@ -2,21 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.InventoryPage">
-    <!--<Shell.TitleView>
+    <Shell.TitleView>
         <StackLayout Orientation="Horizontal">
             <Label 
                 Text="Inventory"
+                TextColor="White"
+                FontAttributes="Bold"
                 VerticalTextAlignment="Center"
-                FontSize="Title"/>
-            <Button 
+                FontSize="20"/>
+            <ImageButton
                 x:Name="btnNew"
-                Text="Add New"
-                HorizontalOptions="End"
-                WidthRequest="50"
-                HeightRequest="30"
+                Source="add.png"
+                HeightRequest="50"
+                HorizontalOptions="EndAndExpand"
                 Clicked="btnNew_Clicked"/>
         </StackLayout>
-    </Shell.TitleView>-->
+    </Shell.TitleView>
     
     <CarouselView 
         ItemsSource="{Binding .}" 
