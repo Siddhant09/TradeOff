@@ -13,7 +13,9 @@
             <ImageButton
                 x:Name="btnNotification"
                 Source="notification.png"
-                HeightRequest="50"
+                WidthRequest="40"
+                Margin="10"
+                VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"
                 Clicked="btnNotification_Clicked"/>
         </StackLayout>

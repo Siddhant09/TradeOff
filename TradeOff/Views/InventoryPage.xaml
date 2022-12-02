@@ -13,7 +13,9 @@
             <ImageButton
                 x:Name="btnNew"
                 Source="add.png"
-                HeightRequest="50"
+                WidthRequest="30"
+                Margin="15"
+                VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"
                 Clicked="btnNew_Clicked"/>
         </StackLayout>
