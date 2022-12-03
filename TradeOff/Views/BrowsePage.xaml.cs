@@ -1,5 +1,5 @@
 using CommunityToolkit.Maui.Alerts;
-using TradeOff.Models;
+using TradeOff.ClassLibrary;
 
 namespace TradeOff.Views;
 

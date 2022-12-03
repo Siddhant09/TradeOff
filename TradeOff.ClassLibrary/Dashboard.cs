@@ -1,11 +1,17 @@
-﻿namespace TradeOff.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TradeOff.ClassLibrary
 {
     public class Dashboard
     {
-        public List<Item> MostLiked { get; set; }
-        public List<Item> MostDisiked { get; set; }
-        public List<Item> MostRequested { get; set; }
-        public List<Item> Users { get; set; }
+        public List<Item>? MostLiked { get; set; }
+        public List<Item>? MostDisiked { get; set; }
+        public List<Item>? MostRequested { get; set; }
+        public List<Item>? Users { get; set; }
 
         public Dashboard GetDashboard()
         {

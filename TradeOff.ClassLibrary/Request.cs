@@ -1,61 +1,65 @@
-﻿using Microsoft.Maui.Graphics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace TradeOff.Models
+namespace TradeOff.ClassLibrary
 {
     public class Request
     {
         public long? IUserId { get; set; }
-        public string IUserName { get; set; }
-        public string IUserPicUrl { get; set; }
-        public string IDate { get; set; }
+        public string? IUserName { get; set; }
+        public string? IUserPicUrl { get; set; }
+        public string? IDate { get; set; }
         public long? IItemId { get; set; }
-        public string ITitle { get; set; }
-        public string IDescription { get; set; }
-        public string IDetails { get; set; }
+        public string? ITitle { get; set; }
+        public string? IDescription { get; set; }
+        public string? IDetails { get; set; }
         public long? ICategoryId { get; set; }
-        public string ICategory { get; set; }
+        public string? ICategory { get; set; }
         public long? IAgeId { get; set; }
-        public string IAge { get; set; }
+        public string? IAge { get; set; }
         public long? IConditionId { get; set; }
-        public string ICondition { get; set; }
-        public string ITags { get; set; }
+        public string? ICondition { get; set; }
+        public string? ITags { get; set; }
         public int ILikes { get; set; }
         public int IDislikes { get; set; }
-        public string ILike { get; set; }
-        public List<Image> IImages { get; set; }
-        public List<Tag> ITagList { get; set; }
+        public string? ILike { get; set; }
+        public List<Image>? IImages { get; set; }
+        public List<Tag>? ITagList { get; set; }
         public long? OUserId { get; set; }
-        public string OUserName { get; set; }
-        public string OUserPicUrl { get; set; }
-        public string ODate { get; set; }
+        public string? OUserName { get; set; }
+        public string? OUserPicUrl { get; set; }
+        public string? ODate { get; set; }
         public long? OItemId { get; set; }
-        public string OTitle { get; set; }
-        public string ODescription { get; set; }
-        public string ODetails { get; set; }
+        public string? OTitle { get; set; }
+        public string? ODescription { get; set; }
+        public string? ODetails { get; set; }
         public long? OCategoryId { get; set; }
-        public string OCategory { get; set; }
+        public string? OCategory { get; set; }
         public long? OAgeId { get; set; }
-        public string OAge { get; set; }
+        public string? OAge { get; set; }
         public long? OConditionId { get; set; }
-        public string OCondition { get; set; }
-        public string OTags { get; set; }
+        public string? OCondition { get; set; }
+        public string? OTags { get; set; }
         public int OLikes { get; set; }
         public int ODislikes { get; set; }
-        public string OLike { get; set; }
-        public List<Image> OImages { get; set; }
-        public List<Tag> OTagList { get; set; }
-        public string Type { get; set; }
+        public string? OLike { get; set; }
+        public List<Image>? OImages { get; set; }
+        public List<Tag>? OTagList { get; set; }
+        public string? Type { get; set; }
         public bool IsIncoming { get; set; }
         public bool IsOutgoing { get; set; }
-        public Color Color { get; set; }
-        public string Status { get; set; }
+        public string? Color { get; set; }
+        public string? Status { get; set; }
 
         public List<Request> GetRequests()
         {
             List<Request> items = new List<Request>();
 
             Request item = new Request();
-            item.Color = Color.Parse("LightGreen");
+            item.Color = "LightGreen";
             item.Type = "(Incoming)";
             item.Status = "(Incoming - Accepted)";
             item.IsIncoming = true;
@@ -102,7 +106,7 @@ namespace TradeOff.Models
             item.IImages = images7;
 
             Request item2 = new Request();
-            item2.Color = Color.Parse("LightGreen");
+            item2.Color = "LightGreen";
             item2.Type = "(Incoming)";
             item2.Status = "(Outgoing - Accepted)";
             item2.IsIncoming = true;
@@ -148,7 +152,7 @@ namespace TradeOff.Models
             item2.OImages = images4;
 
             Request item3 = new Request();
-            item3.Color = Color.Parse("OrangeRed");
+            item3.Color = "OrangeRed";
             item3.Type = "(Outgoing)";
             item3.Status = "(Incoming - Rejected)";
             item3.IsIncoming = false;

@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Alerts;
 using System.Collections.ObjectModel;
-using TradeOff.Models;
+using TradeOff.ClassLibrary;
 
 namespace TradeOff.Views;
 

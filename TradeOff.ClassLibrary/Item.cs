@@ -1,37 +1,43 @@
-﻿namespace TradeOff.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TradeOff.ClassLibrary
 {
     public class Image
     {
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
     }
     public class Tag
     {
-        public string TagName { get; set; }
+        public string? TagName { get; set; }
     }
     public class Item
     {
         public long? UserId { get; set; }
-        public string UserName { get; set; }
-        public string UserPicUrl { get; set; }
-        public string PicUrl { get; set; }
-        public string Date { get; set; }
+        public string? UserName { get; set; }
+        public string? UserPicUrl { get; set; }
+        public string? PicUrl { get; set; }
+        public string? Date { get; set; }
         public long? ItemId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Details { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+        public string? Details { get; set; }
         public long? CategoryId { get; set; }
-        public string Category { get; set; }
+        public string? Category { get; set; }
         public long? AgeId { get; set; }
-        public string Age { get; set; }
+        public string? Age { get; set; }
         public long? ConditionId { get; set; }
-        public string Condition { get; set; }
-        public string Tags { get; set; }
+        public string? Condition { get; set; }
+        public string? Tags { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
         public int Requests { get; set; }
-        public string Like { get; set; }
-        public List<Image> Images { get; set; }
-        public List<Tag> TagList { get; set; }
+        public string? Like { get; set; }
+        public List<Image>? Images { get; set; }
+        public List<Tag>? TagList { get; set; }
 
         public List<Item> GetItems()
         {
@@ -79,7 +85,7 @@
             images2.Add(new Image { ImageUrl = "i2_1.jpg" });
             images2.Add(new Image { ImageUrl = "i2_2.jpg" });
             item2.Images = images2;
-            
+
             Item item3 = new Item();
             item3.UserName = "Nithika Sanghi";
             item3.UserPicUrl = "pro.png";
