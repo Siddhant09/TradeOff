@@ -21,34 +21,52 @@
         </StackLayout>
     </Shell.TitleView>
 
-    <ScrollView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
+        <ScrollView Grid.Row="0" Grid.Column="0">
         <VerticalStackLayout
                 Spacing="25"
                 Padding="10,0">
             
             <Label 
-                Text="Hello, Siddhant!"/>
-            <Image
-                Source="user_profile.png"
-                SemanticProperties.Description="Profile picture"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+                Text="Hello!"/>
+                <Frame
+                    CornerRadius="250"
+                    HeightRequest="250"
+                    WidthRequest="250"
+                    IsClippedToBounds="True"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Image 
+                        Source="{Binding ProfilePicUrl}"
+                        Aspect="AspectFill"
+                        Margin="-20"
+                        HeightRequest="250"/>
+                </Frame>
 
-            <Entry 
+                <Entry 
                 x:Name="txtFirstName"
                 Placeholder="First Name" 
-                Text="Siddhant "/>
+                    Text="{Binding FirstName}"/>
 
             <Entry 
                 x:Name="txtLastName"
                 Placeholder="Last Name" 
-                Text="Chawade" />
+                Text="{Binding LastName}"/>
 
             <Entry 
                 x:Name="txtEmail"
                 Placeholder="Email" 
-                Keyboard="Email"
-                Text="siddhant.c09@gmail.com" />
+                Text="{Binding Email}"
+                IsEnabled="False"
+                Keyboard="Email"/>
 
             <Button 
                 x:Name="btnUpdate"
@@ -64,5 +82,6 @@
                     TextColor="White"
                     Clicked="btnLogout_Clicked"/>
         </VerticalStackLayout>
-    </ScrollView>
+        </ScrollView>
+    </Grid>
 </ContentPage>

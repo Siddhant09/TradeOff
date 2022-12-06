@@ -21,7 +21,16 @@
         </StackLayout>
     </Shell.TitleView>
 
-    <ScrollView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
+        <ScrollView Grid.Row="0" Grid.Column="0">
         <VerticalStackLayout
                 Spacing="25"
                 Padding="10,0">
@@ -87,7 +96,7 @@
                 Text="Most Disliked Items"
                 FontAttributes="Italic"/>
             <CarouselView 
-                ItemsSource="{Binding MostDisiked}" 
+                ItemsSource="{Binding MostDisliked}" 
                 Loop="False"
                 EmptyView="No items to display.">
                 <CarouselView.ItemsLayout>
@@ -125,7 +134,7 @@
                                         HorizontalOptions="CenterAndExpand"
                                         FontAttributes="Bold"
                                         TextColor="OrangeRed"  
-                                        Text="{Binding Dislikes}"/>
+                                        Text="{Binding Likes}"/>
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
@@ -174,7 +183,7 @@
                                         HorizontalOptions="CenterAndExpand"
                                         FontAttributes="Bold"
                                         TextColor="LightBlue"  
-                                        Text="{Binding Requests}"/>
+                                        Text="{Binding Likes}"/>
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
@@ -231,5 +240,6 @@
                     </ListView.ItemTemplate>
                 </ListView>
         </VerticalStackLayout>
-    </ScrollView>
+        </ScrollView>
+    </Grid>
 </ContentPage>

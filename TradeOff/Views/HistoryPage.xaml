@@ -14,7 +14,16 @@
         </StackLayout>
     </Shell.TitleView>
 
-    <CarouselView 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
+        <CarouselView Grid.Row="0" Grid.Column="0"
         ItemsSource="{Binding .}" 
         Loop="False"
         EmptyView="No items to display.">
@@ -29,30 +38,39 @@
                     <StackLayout>
                         <StackLayout 
                             Orientation="Horizontal">
-                            <Image 
-                                Source="{Binding IUserPicUrl}"
-                                HeightRequest="50"/>
-                            <StackLayout 
-                                Orientation="Vertical"
-                                Margin="5"
-                                HorizontalOptions="FillAndExpand"
-                                VerticalOptions="Center">
-                                <StackLayout
-                                    Orientation="Horizontal"
-                                    HorizontalOptions="Fill" 
+                                <Frame
+                                    CornerRadius="50"
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    IsClippedToBounds="True"
+                                    HorizontalOptions="Center"
                                     VerticalOptions="Center">
+                                    <Image 
+                                        Source="{Binding IUserPicUrl}"
+                                        Aspect="AspectFill"
+                                        Margin="-20"
+                                        HeightRequest="50"/>
+                                </Frame>
+                                <StackLayout 
+                                    Orientation="Vertical"
+                                    Margin="5"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Center">
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        HorizontalOptions="Fill" 
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            Text="{Binding IUserName}"
+                                            FontAttributes="Bold"/>
+                                        <Label 
+                                            Text="{Binding Status}"
+                                            HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
                                     <Label 
-                                        Text="{Binding IUserName}"
-                                        FontAttributes="Bold"/>
-                                    <Label 
-                                        TextColor="{Binding Color}"
-                                        Text="{Binding Status}"
-                                        HorizontalOptions="EndAndExpand"/>
-                                </StackLayout>
-                                <Label 
-                                    Text="{Binding IDate}"
-                                    FontSize="Caption"
-                                    FontAttributes="Italic"/>
+                                        Text="{Binding IDate}"
+                                        FontSize="Caption"
+                                        FontAttributes="Italic"/>
                             </StackLayout>
                         </StackLayout>
                         <StackLayout
@@ -61,13 +79,13 @@
                                 Orientation="Vertical"
                                 WidthRequest="200">
                                 <CarouselView 
-                                    ItemsSource="{Binding IImages}" 
+                                    ItemsSource="{Binding IImageList}" 
                                     IndicatorView="{x:Reference indicatorView}">
                                     <CarouselView.ItemTemplate>
                                         <DataTemplate>
                                             <StackLayout>
                                                 <Image 
-                                                    Source="{Binding ImageUrl}"
+                                                    Source="{Binding LookupName}"
                                                     Aspect="AspectFill"
                                                     HeightRequest="250"
                                                     WidthRequest="200"
@@ -85,13 +103,13 @@
                                 Orientation="Vertical"
                                 WidthRequest="200">
                                 <CarouselView 
-                                    ItemsSource="{Binding OImages}" 
+                                    ItemsSource="{Binding OImageList}" 
                                     IndicatorView="{x:Reference indicatorView1}">
                                     <CarouselView.ItemTemplate>
                                         <DataTemplate>
                                             <StackLayout>
                                                 <Image 
-                                                    Source="{Binding ImageUrl}"
+                                                    Source="{Binding LookupName}"
                                                     Aspect="AspectFill"
                                                     HeightRequest="250"
                                                     WidthRequest="200"
@@ -189,7 +207,7 @@
                                         <CollectionView.ItemTemplate>
                                             <DataTemplate>
                                                 <Label
-                                                        Text="{Binding TagName}"
+                                                        Text="{Binding LookupName}"
                                                         TextColor="White"
                                                         BackgroundColor="OrangeRed"
                                                         HorizontalOptions="Start"
@@ -210,7 +228,7 @@
                                         <CollectionView.ItemTemplate>
                                             <DataTemplate>
                                                 <Label
-                                                        Text="{Binding TagName}"
+                                                        Text="{Binding LookupName}"
                                                         TextColor="White"
                                                         BackgroundColor="OrangeRed"
                                                         HorizontalOptions="Start"
@@ -227,4 +245,5 @@
             </DataTemplate>
         </CarouselView.ItemTemplate>
     </CarouselView>
+    </Grid>
 </ContentPage>

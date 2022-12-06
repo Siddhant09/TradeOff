@@ -20,8 +20,17 @@
                 Clicked="btnNew_Clicked"/>
         </StackLayout>
     </Shell.TitleView>
-    
-    <CarouselView 
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
+        <CarouselView Grid.Row="0" Grid.Column="0"
         ItemsSource="{Binding .}" 
         Loop="False"
         EmptyView="No items to display.">
@@ -38,13 +47,13 @@
                        VerticalOptions="StartAndExpand">
                     <StackLayout>
                         <CarouselView 
-                            ItemsSource="{Binding Images}" 
+                            ItemsSource="{Binding ImageList}" 
                             IndicatorView="{x:Reference indicatorView}">
                             <CarouselView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout>
                                         <Image 
-                                            Source="{Binding ImageUrl}"
+                                            Source="{Binding LookupName}"
                                             Aspect="AspectFill"
                                             HeightRequest="500"
                                             WidthRequest="400"
@@ -64,6 +73,7 @@
                                         x:Name="btnDelete"
                                         Text="Delete" 
                                         Clicked="btnDelete_Clicked"
+                                        CommandParameter="{Binding .}"
                                         IconImageSource="delete.png"
                                         BackgroundColor="OrangeRed"/>
                                 </SwipeItems>
@@ -104,7 +114,7 @@
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
                                             <Label 
-                                                Text="{Binding TagName}"
+                                                Text="{Binding LookupName}"
                                                 TextColor="White"
                                                 BackgroundColor="OrangeRed"
                                                 Margin="5"
@@ -118,5 +128,6 @@
                 </StackLayout>
             </DataTemplate>
         </CarouselView.ItemTemplate>
-    </CarouselView>
+        </CarouselView>
+    </Grid>
 </ContentPage>

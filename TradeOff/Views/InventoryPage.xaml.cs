@@ -1,37 +1,47 @@
 using CommunityToolkit.Maui.Alerts;
-using System.Collections.ObjectModel;
 using TradeOff.ClassLibrary;
+using TradeOff.Services;
 
 namespace TradeOff.Views;
 
 public partial class InventoryPage : ContentPage
 {
-    Item _items;  
+    InventoryServices _inventoryServices;
 	public InventoryPage()
-	{
-        _items = new Item();
+    {
+        _inventoryServices = new InventoryServices();
         InitializeComponent();
-        IEnumerable<Item> Items = _items.GetItems();
-        this.BindingContext = Items;
     }
 
-    //protected override void OnAppearing()
-    //{
-    //    IEnumerable<Item> Items = _items.GetItems();
-    //    this.BindingContext = Items;
-    //    base.OnAppearing();
-    //}
-
-    public void GetInventory()
+    protected override async void OnAppearing()
     {
-        try
+        await GetDataAsync();
+        base.OnAppearing();
+    }
+
+    public async Task GetDataAsync()
+    {
+        actInd.IsRunning = actInd.IsVisible = true;
+        Task<Response<List<Product>>> task = new Task<Response<List<Product>>>(() => _inventoryServices.GetInventory());
+        task.Start();
+
+        var response = await task;
+        if (response != null)
         {
-            IEnumerable<Item> Items = _items.GetItems();
+            actInd.IsRunning = actInd.IsVisible = false;
+            if (response.Success)
+                this.BindingContext = response.Data;
+            else
+            {
+                var toast = Toast.Make(response.Message);
+                await toast.Show();
+            }
         }
-        catch (Exception ex)
+        else
         {
-            //var toast = Toast.Make("Error: " + ex.Message);
-            //await toast.Show();
+            actInd.IsRunning = actInd.IsVisible = false;
+            var toast = Toast.Make("Something went wrong, please try again");
+            await toast.Show();
         }
     }
 
@@ -52,7 +62,34 @@ public partial class InventoryPage : ContentPage
     {
         try
         {
-            await DisplayAlert("Delete Item", "Are you sure?", "Yes", "No");
+            if(await DisplayAlert("Delete Item", "Are you sure?", "Yes", "No"))
+            {
+                SwipeItem a = (SwipeItem)sender;
+                Product product = (Product)a.CommandParameter;
+
+                actInd.IsRunning = actInd.IsVisible = true;
+                Task<Response<List<Product>>> task = new Task<Response<List<Product>>>(() => _inventoryServices.DeleteProduct(product));
+                task.Start();
+
+                var response = await task;
+                if (response != null)
+                {
+                    actInd.IsRunning = actInd.IsVisible = false;
+                    if (response.Success)
+                        this.BindingContext = response.Data;
+                    else
+                    {
+                        var toast = Toast.Make(response.Message);
+                        await toast.Show();
+                    }
+                }
+                else
+                {
+                    actInd.IsRunning = actInd.IsVisible = false;
+                    var toast = Toast.Make("Something went wrong, please try again");
+                    await toast.Show();
+                }
+            }
         }
         catch (Exception ex)
         {

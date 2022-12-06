@@ -3,8 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.SignInPage"
              NavigationPage.HasBackButton="False">
-    
-    <VerticalStackLayout
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
+        <VerticalStackLayout Grid.Row="0" Grid.Column="0"
             Spacing="25"
             Padding="10,0"
             VerticalOptions="Center">
@@ -22,14 +31,12 @@
         <Entry 
             x:Name="txtEmail"
             Placeholder="Email" 
-            Keyboard="Email"
-            Text="siddhant.c09@gmail.com"/>
+            Keyboard="Email"/>
         
         <Entry 
             x:Name="txtPassword"
             Placeholder="Password"
-            IsPassword="True" 
-            Text="Password"/>
+            IsPassword="True"/>
 
         <Button 
             x:Name="btnSignIn"
@@ -40,5 +47,6 @@
             x:Name="btnSignUp"
             Text="Sign Up"
             Clicked="btnSignUp_Clicked"/>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

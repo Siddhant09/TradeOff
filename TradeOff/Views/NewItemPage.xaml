@@ -13,8 +13,17 @@
                 FontSize="20"/>
         </StackLayout>
     </Shell.TitleView>
-    
-    <ScrollView>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
+        <ScrollView Grid.Row="0" Grid.Column="0">
         <VerticalStackLayout
                 Spacing="25"
                 Padding="10,0">
@@ -28,38 +37,22 @@
                 AutoSize="TextChanges"
                 Placeholder="Enter Desctiption"/>
 
-            <Picker x:Name="ddlCategory"
-                Title="--Select Category--">
-                <Picker.Items>
-                    <x:String>Furniture</x:String>
-                    <x:String>Electronic</x:String>
-                    <x:String>Accessory</x:String>
-                </Picker.Items>
-            </Picker>
+                <Picker x:Name="ddlCategory"
+                Title="--Select Category--"
+                ItemsSource="{Binding CategoryList}"
+                ItemDisplayBinding="{Binding LookupName}"/> 
 
-            <Picker x:Name="ddlAge"
-                Title="--Select Age--">
-                <Picker.Items>
-                    <x:String>Less than a Month</x:String>
-                    <x:String>1 to 3 Months</x:String>
-                    <x:String>4 to 6 Months</x:String>
-                    <x:String>6 to 9 Months</x:String>
-                    <x:String>9 to 12 Months</x:String>
-                    <x:String>More than 12 Months</x:String>
-                </Picker.Items>
-            </Picker>
+                <Picker x:Name="ddlAge"
+                Title="--Select Age--"
+                ItemsSource="{Binding AgeList}"
+                ItemDisplayBinding="{Binding LookupName}"/>
 
-            <Picker x:Name="ddlCondition"
-                Title="--Select Condition--">
-                <Picker.Items>
-                    <x:String>Excellent</x:String>
-                    <x:String>Good</x:String>
-                    <x:String>Poor</x:String>
-                    <x:String>Bad</x:String>
-                </Picker.Items>
-            </Picker>
+                <Picker x:Name="ddlCondition"
+                Title="--Select Condition--"
+                ItemsSource="{Binding ConditionList}"
+                ItemDisplayBinding="{Binding LookupName}"/>
 
-            <Entry
+                <Entry
                 x:Name="txtTags"
                 Placeholder="Enter Tags (comma separated)"/>
 
@@ -80,5 +73,6 @@
                 TextColor="White"
                 Clicked="btnCancel_Clicked"/>
         </VerticalStackLayout>
-    </ScrollView>
+        </ScrollView>
+    </Grid>
 </ContentPage>

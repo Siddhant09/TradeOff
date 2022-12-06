@@ -14,7 +14,16 @@
         </StackLayout>
     </Shell.TitleView>
 
-    <VerticalStackLayout
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65" ZIndex="99" />
+        <VerticalStackLayout Grid.Row="0" Grid.Column="0"
             Spacing="25"
             Padding="10,0"
             VerticalOptions="Center">
@@ -55,5 +64,6 @@
         <Button 
             x:Name="btnSignUp"
             Text="Sign Up" Clicked="btnSignUp_Clicked" />
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
