@@ -20,8 +20,8 @@ public partial class BrowsePage : ContentPage
 
     protected override async void OnAppearing()
     {
-        await GetInventoryAsync();
         await GetDataAsync();
+        await GetInventoryAsync();
         base.OnAppearing();
     }
 

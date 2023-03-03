@@ -69,6 +69,7 @@ public partial class RequestsPage : ContentPage
 
             Request request = new Request();
             request.TradeRequestId = product.TradeRequestId;
+            request.IUserId = product.IUserId;
 
             Task<Response<List<Request>>> task = new Task<Response<List<Request>>>(() => _requestServices.AcceptTradeRequest(request));
             task.Start();
@@ -149,6 +150,7 @@ public partial class RequestsPage : ContentPage
 
             Request request = new Request();
             request.TradeRequestId = product.TradeRequestId;
+            request.IUserId = product.IUserId;
 
             Task<Response<List<Request>>> task = new Task<Response<List<Request>>>(() => _requestServices.RejectTradeRequest(request));
             task.Start();

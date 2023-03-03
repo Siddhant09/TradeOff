@@ -129,5 +129,68 @@ namespace TradeOff.Services
             }
             return response;
         }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Dec 2022
+        //Description   : To get notifications
+        public Response<List<Notification>> GetNotifications()
+        {
+            Response<List<Notification>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpGetRequest(Urls.GetNotificationsUrl, null);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Notification>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Dec 2022
+        //Description   : To delete notifications
+        public Response<List<Notification>> DeleteNotifications()
+        {
+            Response<List<Notification>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpGetRequest(Urls.DeleteNotificationsUrl, null);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Notification>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Dec 2022
+        //Description   : To get notifications
+        public Response<List<Notification>> UpdateNotificationStatus()
+        {
+            Response<List<Notification>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpGetRequest(Urls.UpdateNotificationStatusUrl, null);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Notification>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
     }
 }

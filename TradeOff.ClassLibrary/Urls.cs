@@ -17,6 +17,9 @@ namespace TradeOff.ClassLibrary
         public const string GetProfileUrl = "api/get-profile";
         public const string UpdateProfileUrl = "api/update-profile";
         public const string GetTradeRequestHistoryUrl = "api/get-trade-request-history";
+        public const string GetNotificationsUrl = "api/get-notifications";
+        public const string DeleteNotificationsUrl = "api/delete-notifications";
+        public const string UpdateNotificationStatusUrl = "api/update-notification-status";
 
         //Inventory
         public const string GetInventoryOptionsUrl = "api/get-inventory-options";

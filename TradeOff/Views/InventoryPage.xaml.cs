@@ -62,7 +62,7 @@ public partial class InventoryPage : ContentPage
     {
         try
         {
-            if(await DisplayAlert("Delete Item", "Are you sure?", "Yes", "No"))
+            if(await DisplayAlert("Delete This Product", "Are you sure?", "Yes", "No"))
             {
                 SwipeItem a = (SwipeItem)sender;
                 Product product = (Product)a.CommandParameter;
