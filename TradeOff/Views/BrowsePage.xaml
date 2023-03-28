@@ -21,7 +21,8 @@
         </StackLayout>
     </Shell.TitleView>
 
-    <Grid>
+    <!--<RefreshView IsRefreshing="{Binding _isRefreshing}" Command="OnRefresh">-->
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="0"></RowDefinition>
@@ -73,9 +74,9 @@
                                         <Label 
                                             Text="{Binding UserName}"
                                             FontAttributes="Bold"/>
-                                        <Label 
+                                        <!--<Label 
                                             Text="{Binding Status}"
-                                            HorizontalOptions="EndAndExpand"/>
+                                            HorizontalOptions="EndAndExpand"/>-->
                                     </StackLayout>
                                     <Label 
                                         Text="{Binding Date}"
@@ -134,11 +135,32 @@
                                 </SwipeItems>
                             </SwipeView.LeftItems>
                             <StackLayout>
-                                <Label 
-                                    Text="{Binding Title}"
-                                    FontAttributes="Bold"
-                                    Margin="5"
-                                    FontSize="18" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label 
+                                            Text="{Binding Title}"
+                                            FontAttributes="Bold"
+                                            Margin="5"
+                                            FontSize="18" />
+                                        <Image 
+                                            Source="liked.png"
+                                            WidthRequest="25"
+                                            Margin="0, 0, 15, 0"
+                                            VerticalOptions="Start"
+                                            HorizontalOptions="EndAndExpand"/>
+                                        <Label 
+                                            Text="4"
+                                            Margin="0, 3, 5, 0"
+                                            VerticalOptions="Start"
+                                            HorizontalOptions="End" />
+                                        <ImageButton
+                                            x:Name="btnComments"
+                                            Source="comment_white.png"
+                                            WidthRequest="25"
+                                            Margin="0, -13, 5, 0"
+                                            VerticalOptions="Start"
+                                            HorizontalOptions="End"
+                                            Clicked="btnComments_Clicked"/>
+                                    </StackLayout>
                                 <Label 
                                     Text="{Binding Description}"
                                     MaxLines="2"
@@ -175,4 +197,5 @@
         </CarouselView.ItemTemplate>
         </CarouselView>
     </Grid>
+    <!--</RefreshView>-->
 </ContentPage>

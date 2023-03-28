@@ -59,10 +59,10 @@
                                 Margin="5"
                                 VerticalOptions="Center">
                                 <Label 
-                                    Text="{Binding UserName}"/>
-                                <Label 
-                                    Text="{Binding Message}"
+                                    Text="{Binding UserName}"
                                     FontAttributes="Bold"/>
+                                <Label 
+                                    Text="{Binding Message}"/>
                                 <Label 
                                     Text="{Binding DateTIme}"
                                     FontSize="Caption"

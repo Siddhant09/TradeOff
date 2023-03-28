@@ -50,35 +50,35 @@
 
 	<ItemGroup>
 	  <None Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
+	  <None Remove="Resources\Images\accepted.png" />
 	  <None Remove="Resources\Images\add.png" />
 	  <None Remove="Resources\Images\browse.png" />
 	  <None Remove="Resources\Images\cancel.png" />
+	  <None Remove="Resources\Images\cancelled.png" />
+	  <None Remove="Resources\Images\chat.png" />
+	  <None Remove="Resources\Images\chat_white.png" />
+	  <None Remove="Resources\Images\comment.png" />
+	  <None Remove="Resources\Images\comment_white.png" />
 	  <None Remove="Resources\Images\dashboard.png" />
 	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\dislike.png" />
+	  <None Remove="Resources\Images\disliked.png" />
 	  <None Remove="Resources\Images\edit.png" />
 	  <None Remove="Resources\Images\history.png" />
-	  <None Remove="Resources\Images\i1_1.jpg" />
-	  <None Remove="Resources\Images\i1_2.jpg" />
-	  <None Remove="Resources\Images\i1_3.jpg" />
-	  <None Remove="Resources\Images\i2_1.jpg" />
-	  <None Remove="Resources\Images\i2_2.jpg" />
-	  <None Remove="Resources\Images\i3_1.jpg" />
-	  <None Remove="Resources\Images\i4_1.jpg" />
-	  <None Remove="Resources\Images\i4_2.jpg" />
-	  <None Remove="Resources\Images\i5_1.jpg" />
-	  <None Remove="Resources\Images\i5_2.jpg" />
-	  <None Remove="Resources\Images\i6_1.jpg" />
-	  <None Remove="Resources\Images\i6_2.jpg" />
-	  <None Remove="Resources\Images\i7_1.jpg" />
-	  <None Remove="Resources\Images\i7_2.jpg" />
+	  <None Remove="Resources\Images\incoming.png" />
 	  <None Remove="Resources\Images\inventory.png" />
 	  <None Remove="Resources\Images\like.png" />
+	  <None Remove="Resources\Images\liked.png" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\notification.png" />
+	  <None Remove="Resources\Images\not_liked.png" />
+	  <None Remove="Resources\Images\outgoing.png" />
 	  <None Remove="Resources\Images\pro.png" />
 	  <None Remove="Resources\Images\profile.png" />
+	  <None Remove="Resources\Images\rejected.png" />
 	  <None Remove="Resources\Images\requests.png" />
+	  <None Remove="Resources\Images\temp1.jpg" />
+	  <None Remove="Resources\Images\temp2.jpg" />
 	  <None Remove="Resources\Images\trade.png" />
 	  <None Remove="Resources\Images\user_profile.png" />
 	</ItemGroup>
@@ -102,6 +102,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\BrowsePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CommentsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DashboardPage.xaml">
@@ -132,6 +135,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SignUpPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TimeSlotsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

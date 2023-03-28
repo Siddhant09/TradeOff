@@ -12,13 +12,14 @@ public partial class DashboardPage : ContentPage
         _dashboardServices = new DashboardServices();
         InitializeComponent();
         ddlDateRange.SelectedIndex = 0;
+        GetDataAsync();
     }
 
-    protected override async void OnAppearing()
-    {
-        await GetDataAsync();
-        base.OnAppearing();
-    }
+    //protected override async void OnAppearing()
+    //{
+    //    await GetDataAsync();
+    //    base.OnAppearing();
+    //}
 
     public async Task GetDataAsync()
     {

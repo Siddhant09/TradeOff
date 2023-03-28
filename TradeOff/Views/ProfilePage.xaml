@@ -71,8 +71,12 @@
             <Button 
                 x:Name="btnUpdate"
                 Text="Update Profile" Clicked="btnUpdate_Clicked" />
+            
+                <Button 
+                x:Name="btnTimeSlots"
+                Text="Manage Time Slots" Clicked="btnTimeSlots_Clicked" />
 
-            <Button 
+                <Button 
                 x:Name="btnHistory"
                 Text="View History" Clicked="btnHistory_Clicked" />
 

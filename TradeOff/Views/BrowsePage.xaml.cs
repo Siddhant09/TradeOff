@@ -11,18 +11,31 @@ public partial class BrowsePage : ContentPage
     InventoryServices _inventoryServices;
     IEnumerable<Product> _products;
     IEnumerable<Product> _inventory;
+    bool _isRefreshing = false;
     public BrowsePage()
     {
         _browseServices = new BrowseServices();
         _inventoryServices = new InventoryServices();
         InitializeComponent();
+        GetDataAsync();
+        GetInventoryAsync();
     }
 
-    protected override async void OnAppearing()
+    //protected override async void OnAppearing()
+    //{
+    //    await GetDataAsync();
+    //    await GetInventoryAsync();
+    //    base.OnAppearing();
+    //}
+
+    protected async void OnRefresh()
     {
+        _isRefreshing = true;
+        this.BindingContext = _isRefreshing;
         await GetDataAsync();
         await GetInventoryAsync();
-        base.OnAppearing();
+        _isRefreshing = false;
+        this.BindingContext = _isRefreshing;
     }
 
     public async Task GetDataAsync()
@@ -225,6 +238,19 @@ public partial class BrowsePage : ContentPage
                     await toast.Show();
                 }
             }
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
+    }
+
+    private async void btnComments_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true);
         }
         catch (Exception ex)
         {

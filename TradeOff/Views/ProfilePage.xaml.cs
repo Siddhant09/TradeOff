@@ -11,13 +11,14 @@ public partial class ProfilePage : ContentPage
     {
         _profileServices = new ProfileServices();
         InitializeComponent();
+        GetDataAsync();
     }
 
-    protected override async void OnAppearing()
-    {
-        await GetDataAsync();
-        base.OnAppearing();
-    }
+    //protected override async void OnAppearing()
+    //{
+    //    await GetDataAsync();
+    //    base.OnAppearing();
+    //}
 
     public async Task GetDataAsync()
     {
@@ -92,6 +93,19 @@ public partial class ProfilePage : ContentPage
         try
         {
             await Shell.Current.GoToAsync($"{nameof(NotificationsPage)}", true);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
+    }
+
+    private async void btnTimeSlots_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync($"{nameof(TimeSlotsPage)}", true);
         }
         catch (Exception ex)
         {

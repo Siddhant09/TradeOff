@@ -11,13 +11,14 @@ public partial class InventoryPage : ContentPage
     {
         _inventoryServices = new InventoryServices();
         InitializeComponent();
+        GetDataAsync();
     }
 
-    protected override async void OnAppearing()
-    {
-        await GetDataAsync();
-        base.OnAppearing();
-    }
+    //protected override async void OnAppearing()
+    //{
+    //    await GetDataAsync();
+    //    base.OnAppearing();
+    //}
 
     public async Task GetDataAsync()
     {
@@ -101,5 +102,18 @@ public partial class InventoryPage : ContentPage
     private void btnEdit_Clicked(object sender, EventArgs e)
     {
 
+    }
+
+    private async void btnComments_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
     }
 }

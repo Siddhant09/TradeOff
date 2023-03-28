@@ -11,13 +11,14 @@ public partial class HistoryPage : ContentPage
     {
         _profileServices = new ProfileServices();
         InitializeComponent();
+        GetDataAsync();
     }
 
-    protected override async void OnAppearing()
-    {
-        await GetDataAsync();
-        base.OnAppearing();
-    }
+    //protected override async void OnAppearing()
+    //{
+    //    await GetDataAsync();
+    //    base.OnAppearing();
+    //}
 
     public async Task GetDataAsync()
     {
@@ -41,6 +42,19 @@ public partial class HistoryPage : ContentPage
         {
             actInd.IsRunning = actInd.IsVisible = false;
             var toast = Toast.Make("Something went wrong, please try again");
+            await toast.Show();
+        }
+    }
+
+    private async void btnComments_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
             await toast.Show();
         }
     }

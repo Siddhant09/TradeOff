@@ -11,13 +11,14 @@ public partial class NotificationsPage : ContentPage
     {
         _profileServices = new ProfileServices();
         InitializeComponent();
+        GetDataAsync();
     }
 
-    protected override async void OnAppearing()
-    {
-        await GetDataAsync();
-        base.OnAppearing();
-    }
+    //protected override async void OnAppearing()
+    //{
+    //    await GetDataAsync();
+    //    base.OnAppearing();
+    //}
 
     public async Task GetDataAsync()
     {

@@ -88,13 +88,28 @@
                                         BackgroundColor="LightBlue" />
                                 </SwipeItems>
                             </SwipeView.LeftItems>
-                            <StackLayout>
-                                <Label 
-                                    Text="{Binding Title}"
-                                    FontAttributes="Bold"
-                                    Margin="5"
-                                    FontSize="18" />
-                                <Label 
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label 
+                                            Text="{Binding Title}"
+                                            FontAttributes="Bold"
+                                            Margin="5"
+                                            FontSize="18" />
+                                        <Label 
+                                            Text="4"
+                                            Margin="0, 3, 5, 0"
+                                            VerticalOptions="Start"
+                                            HorizontalOptions="EndAndExpand" />
+                                        <ImageButton
+                                            x:Name="btnComments"
+                                            Source="comment_white.png"
+                                            WidthRequest="25"
+                                            Margin="0, -13, 5, 0"
+                                            VerticalOptions="Start"
+                                            HorizontalOptions="End"
+                                            Clicked="btnComments_Clicked"/>
+                                    </StackLayout>
+                                    <Label 
                                     Text="{Binding Description}"
                                     MaxLines="2"
                                     Margin="5"

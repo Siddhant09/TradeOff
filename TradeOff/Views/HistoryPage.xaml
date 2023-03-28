@@ -56,23 +56,33 @@
                                     Margin="5"
                                     HorizontalOptions="FillAndExpand"
                                     VerticalOptions="Center">
-                                    <StackLayout
+                                    <Label 
+                                            Text="{Binding IUserName}"
+                                            FontAttributes="Bold"/>
+                                    <Label 
+                                        Text="{Binding Date}"
+                                        FontSize="Caption"
+                                        FontAttributes="Italic"/>
+                                </StackLayout>
+                                <StackLayout
                                         Orientation="Horizontal"
                                         HorizontalOptions="Fill" 
                                         VerticalOptions="Center">
-                                        <Label 
-                                            Text="{Binding IUserName}"
-                                            FontAttributes="Bold"/>
-                                        <Label 
-                                            Text="{Binding Status}"
+                                    <Image
+                                            Source="outgoing.png"
+                                            WidthRequest="35"
+                                            Margin="0, 0, 10, 0"
                                             HorizontalOptions="EndAndExpand"/>
-                                    </StackLayout>
-                                    <Label 
-                                        Text="{Binding IDate}"
-                                        FontSize="Caption"
-                                        FontAttributes="Italic"/>
+                                    <Image
+                                            Source="accepted.png"
+                                            WidthRequest="35"
+                                            Margin="0, 0, 5, 0"
+                                            HorizontalOptions="End"/>
+                                    <!--<Label 
+                                            Text="{Binding Status}"
+                                            HorizontalOptions="EndAndExpand"/>-->
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
                         <StackLayout
                             Orientation="Horizontal">
                             <StackLayout
@@ -130,20 +140,50 @@
                                     Orientation="Horizontal">
                                 <StackLayout
                                         WidthRequest="200">
-                                    <Label 
-                                            Text="{Binding ITitle}"
-                                            FontAttributes="Bold"
-                                            Margin="5"
-                                            FontSize="18" />
-                                </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label 
+                                                    Text="{Binding ITitle}"
+                                                    FontAttributes="Bold"
+                                                    Margin="5"
+                                                    FontSize="18" />
+                                            <Label 
+                                                    Text="4"
+                                                    Margin="0, 8, 5, 0"
+                                                    VerticalOptions="Start"
+                                                    HorizontalOptions="EndAndExpand" />
+                                            <ImageButton
+                                                    x:Name="btnComments"
+                                                    Source="comment_white.png"
+                                                    WidthRequest="25"
+                                                    Margin="0, -8, 5, 0"
+                                                    VerticalOptions="Start"
+                                                    HorizontalOptions="End"
+                                                    Clicked="btnComments_Clicked"/>
+                                        </StackLayout>
+                                    </StackLayout>
                                 <StackLayout
                                         WidthRequest="200">
-                                    <Label 
-                                            Text="{Binding OTitle}"
-                                            FontAttributes="Bold"
-                                            Margin="5"
-                                            FontSize="18" />
-                                </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label 
+                                                    Text="{Binding OTitle}"
+                                                    FontAttributes="Bold"
+                                                    Margin="5"
+                                                    FontSize="18" />
+                                            <Label 
+                                                    Text="4"
+                                                    Margin="0, 8, 5, 0"
+                                                    VerticalOptions="Start"
+                                                    HorizontalOptions="EndAndExpand" />
+                                            <ImageButton
+                                                    x:Name="btnComments1"
+                                                    Source="comment_white.png"
+                                                    WidthRequest="25"
+                                                    Margin="0, -8, 10, 0"
+                                                    VerticalOptions="Start"
+                                                    HorizontalOptions="End"
+                                                    Clicked="btnComments_Clicked"/>
+                                        </StackLayout>
+                                    </StackLayout>
                             </StackLayout>
                             <StackLayout
                                     Orientation="Horizontal">
