@@ -70,12 +70,12 @@
                                         VerticalOptions="Center">
                                     <Image
                                             Source="outgoing.png"
-                                            WidthRequest="35"
+                                            WidthRequest="25"
                                             Margin="0, 0, 10, 0"
                                             HorizontalOptions="EndAndExpand"/>
                                     <Image
                                             Source="accepted.png"
-                                            WidthRequest="35"
+                                            WidthRequest="25"
                                             Margin="0, 0, 5, 0"
                                             HorizontalOptions="End"/>
                                     <!--<Label 
@@ -153,7 +153,7 @@
                                                     HorizontalOptions="EndAndExpand" />
                                             <ImageButton
                                                     x:Name="btnComments"
-                                                    Source="comment_white.png"
+                                                    Source="{AppThemeBinding Light=comment.png, Dark=comment_white.png}"
                                                     WidthRequest="25"
                                                     Margin="0, -8, 5, 0"
                                                     VerticalOptions="Start"
@@ -176,7 +176,7 @@
                                                     HorizontalOptions="EndAndExpand" />
                                             <ImageButton
                                                     x:Name="btnComments1"
-                                                    Source="comment_white.png"
+                                                    Source="{AppThemeBinding Light=comment.png, Dark=comment_white.png}"
                                                     WidthRequest="25"
                                                     Margin="0, -8, 10, 0"
                                                     VerticalOptions="Start"

@@ -162,7 +162,7 @@
                                             HorizontalOptions="End" />
                                         <ImageButton
                                             x:Name="btnComments"
-                                            Source="comment_white.png"
+                                            Source="{AppThemeBinding Light=comment.png, Dark=comment_white.png}"
                                             WidthRequest="25"
                                             Margin="0, -13, 5, 0"
                                             VerticalOptions="Start"

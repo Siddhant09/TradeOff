@@ -35,5 +35,24 @@
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"/>
         </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Fill">
+            <Label 
+            Text="Theme" 
+                VerticalOptions="CenterAndExpand"/>
+            <Picker 
+                x:Name="ddlTheme"
+                SelectedIndexChanged="ddlTheme_SelectedIndexChanged"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="EndAndExpand"
+                WidthRequest="40"
+                Title="Select a theme">
+                <Picker.Items>
+                    <x:String>Dark</x:String>
+                    <x:String>Light</x:String>
+                </Picker.Items>
+            </Picker>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
