@@ -3,21 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.ProfilePage">
     <Shell.TitleView>
-        <StackLayout Orientation="Horizontal">
+        <StackLayout 
+            Orientation="Horizontal"
+            HorizontalOptions="Fill">
             <Label 
                 Text="Profile"
                 TextColor="White"
                 FontAttributes="Bold"
                 VerticalTextAlignment="Center"
-                FontSize="20"/>
+                FontSize="17"/>
             <ImageButton
                 x:Name="btnNotification"
                 Source="notification.png"
-                WidthRequest="40"
-                Margin="10"
+                WidthRequest="25"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"
                 Clicked="btnNotification_Clicked"/>
+            <ImageButton
+                x:Name="btnMore"
+                Source="more.png"
+                Margin="10"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End"
+                Clicked="btnMore_Clicked"/>
         </StackLayout>
     </Shell.TitleView>
 
@@ -33,7 +41,7 @@
         <ScrollView Grid.Row="0" Grid.Column="0">
         <VerticalStackLayout
                 Spacing="25"
-                Padding="10,0">
+                Padding="5,0">
             
             <Label 
                 Text="Hello!"/>
@@ -70,15 +78,15 @@
 
             <Button 
                 x:Name="btnUpdate"
-                Text="Update Profile" Clicked="btnUpdate_Clicked" />
+                Text="Save" Clicked="btnUpdate_Clicked" />
             
-                <Button 
+                <!--<Button 
                 x:Name="btnTimeSlots"
-                Text="Manage Time Slots" Clicked="btnTimeSlots_Clicked" />
+                Text="Manage Availability" Clicked="btnTimeSlots_Clicked" />
 
                 <Button 
                 x:Name="btnHistory"
-                Text="View History" Clicked="btnHistory_Clicked" />
+                Text="View History" Clicked="btnHistory_Clicked" />-->
 
             <Button x:Name="btnLogout"
                     Text="Logout"

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TradeOff.Views.NewTimeSlotPage"
+             Title="Availability">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                Text="Availability"
+                TextColor="White"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                FontSize="17"/>
+        </StackLayout>
+    </Shell.TitleView>
+    <VerticalStackLayout 
+        Margin="5">
+        <HorizontalStackLayout>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="From: " />
+            <TimePicker
+                x:Name="tpFrom"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="To: " />
+            <TimePicker
+                x:Name="tpTo"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <CheckBox
+                x:Name="cbSunday"/>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="Sunday" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <CheckBox
+                x:Name="cbMonday"/>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="Monday" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <CheckBox
+                x:Name="cbTuesday"/>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="Tuesday" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <CheckBox
+                x:Name="cbWednesday"/>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="Wednesday" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <CheckBox
+                x:Name="cbThursday"/>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="Thursday" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <CheckBox
+                x:Name="cbFriday"/>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="Friday" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <CheckBox
+                x:Name="cbSaturday"/>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="Saturday" />
+        </HorizontalStackLayout>
+        <Button
+                x:Name="btnSave"
+                Text="Save"
+                Margin="5"
+                VerticalOptions="EndAndExpand"
+                Clicked="btnSave_Clicked"/>
+        <Button
+                x:Name="btnCancel"
+                Text="Cancel"
+                Margin="5"
+                BackgroundColor="Red"
+                TextColor="White"
+                VerticalOptions="End"
+                Clicked="btnCancel_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -70,6 +70,7 @@
 	  <None Remove="Resources\Images\like.png" />
 	  <None Remove="Resources\Images\liked.png" />
 	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\more.png" />
 	  <None Remove="Resources\Images\notification.png" />
 	  <None Remove="Resources\Images\not_liked.png" />
 	  <None Remove="Resources\Images\outgoing.png" />
@@ -122,6 +123,9 @@
 	  <MauiXaml Update="Views\NewItemPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\NewTimeSlotPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\NotificationsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -129,6 +133,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RequestsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SignInPage.xaml">

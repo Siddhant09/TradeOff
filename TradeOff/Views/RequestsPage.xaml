@@ -3,21 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TradeOff.Views.RequestsPage">
     <Shell.TitleView>
-        <StackLayout Orientation="Horizontal">
+        <StackLayout 
+            Orientation="Horizontal"
+            HorizontalOptions="Fill">
             <Label 
                 Text="Requests"
                 TextColor="White"
                 FontAttributes="Bold"
                 VerticalTextAlignment="Center"
-                FontSize="20"/>
+                FontSize="17"/>
             <ImageButton
                 x:Name="btnNotification"
                 Source="notification.png"
-                WidthRequest="40"
-                Margin="10"
+                WidthRequest="25"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"
                 Clicked="btnNotification_Clicked"/>
+            <ImageButton
+                x:Name="btnMore"
+                Source="more.png"
+                Margin="10"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End"
+                Clicked="btnMore_Clicked"/>
         </StackLayout>
     </Shell.TitleView>
 

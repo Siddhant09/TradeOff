@@ -113,4 +113,34 @@ public partial class ProfilePage : ContentPage
             await toast.Show();
         }
     }
+
+    private async void btnMore_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            string action = await DisplayActionSheet("More", "Cancel", "Logout", "Manage Availability", "View History", "Settings");
+            if (action == "Manage Availability")
+                await Shell.Current.GoToAsync($"{nameof(TimeSlotsPage)}", true);
+            else if (action == "View History")
+                await Shell.Current.GoToAsync($"{nameof(HistoryPage)}", true);
+            else if (action == "Settings")
+                await Shell.Current.GoToAsync($"{nameof(SettingsPage)}", true);
+            else if (action == "Logout")
+            {
+                bool confirm = await DisplayAlert("Logout", "Are you sure?", "Yes", "No");
+                if (confirm)
+                {
+                    Preferences.Default.Set("userId", string.Empty);
+                    Preferences.Default.Set("userName", string.Empty);
+                    Preferences.Default.Set("authToken", string.Empty);
+                    await Shell.Current.GoToAsync($"//{nameof(SignInPage)}", true);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
+    }
 }

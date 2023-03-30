@@ -9,11 +9,11 @@
                 TextColor="White"
                 FontAttributes="Bold"
                 VerticalTextAlignment="Center"
-                FontSize="20"/>
+                FontSize="17"/>
             <ImageButton
                 x:Name="btnNew"
                 Source="add.png"
-                WidthRequest="30"
+                WidthRequest="20"
                 Margin="15"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"

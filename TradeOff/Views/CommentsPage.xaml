@@ -10,7 +10,7 @@
                 TextColor="White"
                 FontAttributes="Bold"
                 VerticalTextAlignment="Center"
-                FontSize="20"/>
+                FontSize="17"/>
         </StackLayout>
     </Shell.TitleView>
 
