@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TradeOff.Views.CommentsPage"
-             Title="Comments">
+             x:Class="TradeOff.Views.InboxPage"
+             Title="InboxPage">
     <Shell.TitleView>
         <StackLayout Orientation="Horizontal">
             <Label 
-                Text="Comments"
+                Text="Inbox"
                 TextColor="White"
                 FontAttributes="Bold"
                 VerticalTextAlignment="Center"
@@ -28,13 +28,14 @@
             <ListView    
             ItemsSource="{Binding .}"
             RowHeight="70"
-            SelectionMode="None"
-            VerticalOptions="FillAndExpand">
+            SelectionMode="Single"
+            VerticalOptions="FillAndExpand"
+                ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout
-                                Orientation="Horizontal">
+                            Orientation="Horizontal">
                                 <Frame
                                     CornerRadius="50"
                                     HeightRequest="50"
@@ -49,45 +50,38 @@
                                         HeightRequest="50"/>
                                 </Frame>
                                 <StackLayout 
-                                    Orientation="Vertical"
-                                    Margin="5"
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="Center">
-                                    <StackLayout
-                                        Orientation="Horizontal">
-                                        <Label 
-                                            Text="{Binding UserName}"
-                                            FontAttributes="Bold"
-                                            HorizontalOptions="StartAndExpand"/>
-                                        <Label 
-                                            Text="{Binding DateTIme}"
-                                            FontSize="Caption"
-                                            FontAttributes="Italic"
-                                            HorizontalOptions="Center"/>
-                                    </StackLayout>
+                                Orientation="Vertical"
+                                Margin="5"
+                                VerticalOptions="Center">
                                     <Label 
-                                        Text="{Binding Message}"/>
+                                    Text="{Binding UserName}"
+                                    FontAttributes="Bold"/>
+                                    <Label 
+                                    Text="{Binding Message}"/>
+                                </StackLayout>
+                                <StackLayout
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="StartAndExpand"
+                                    Margin="5"
+                                Orientation="Vertical">
+                                    <Label 
+                                    Text="{Binding DateTIme}"
+                                    FontSize="Caption"
+                                        Margin="0, 15, 0, 0"
+                                    FontAttributes="Italic"/>
+                                    <!--<Label
+                                    Padding="5"
+                                    IsVisible="{Binding IsNew}"
+                                    Text="New"
+                                        HorizontalOptions="End"
+                                    TextColor="White"
+                                    BackgroundColor="OrangeRed"/>-->
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Fill">
-                <Editor
-                    x:Name="txtComment"
-                    AutoSize="TextChanges"
-                    Margin="10"
-                    HorizontalOptions="StartAndExpand"
-                    Placeholder="Leave a comment"/>
-                <ImageButton
-                    Source="{AppThemeBinding Light=send.png, Dark=send_white.png}"
-                    HorizontalOptions="End"
-                    Margin="10"
-                    WidthRequest="25"/>
-            </StackLayout>
         </StackLayout>
     </Grid>
 </ContentPage>

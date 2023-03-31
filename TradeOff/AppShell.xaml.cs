@@ -17,5 +17,8 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(TimeSlotsPage), typeof(TimeSlotsPage));
         Routing.RegisterRoute(nameof(NewTimeSlotPage), typeof(NewTimeSlotPage));
         Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
+        Routing.RegisterRoute(nameof(InboxPage), typeof(InboxPage));
+        Routing.RegisterRoute(nameof(MessagesPage), typeof(MessagesPage));
+        Routing.RegisterRoute(nameof(MapPage), typeof(MapPage));
     }
 }

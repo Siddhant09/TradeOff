@@ -6,6 +6,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
         MainPage = new AppShell();
-        Application.Current.UserAppTheme = AppTheme.Dark;
+        Application.Current.UserAppTheme = AppTheme.Light;
     }
 }

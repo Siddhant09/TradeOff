@@ -69,14 +69,36 @@
                 Placeholder="Last Name" 
                 Text="{Binding LastName}"/>
 
-            <Entry 
+                <Entry 
                 x:Name="txtEmail"
                 Placeholder="Email" 
                 Text="{Binding Email}"
                 IsEnabled="False"
                 Keyboard="Email"/>
 
-            <Button 
+                <Entry 
+                x:Name="txtAddress"
+                Placeholder="Street Address" 
+                Text="359, North West Street"/>
+
+                <Entry 
+                x:Name="txtCity"
+                Placeholder="City" 
+                Text="Indianapolis"/>
+
+                <Entry 
+                x:Name="txtPincode"
+                Placeholder="Pincode" 
+                Text="46202"/>
+            
+                <Picker x:Name="ddlState"
+                Title="--Select State--">
+                    <Picker.Items>
+                        <x:String>Indiana</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Button 
                 x:Name="btnUpdate"
                 Text="Save" Clicked="btnUpdate_Clicked" />
             

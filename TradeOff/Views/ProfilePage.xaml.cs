@@ -12,6 +12,7 @@ public partial class ProfilePage : ContentPage
         _profileServices = new ProfileServices();
         InitializeComponent();
         GetDataAsync();
+        ddlState.SelectedIndex= 0;  
     }
 
     //protected override async void OnAppearing()
@@ -118,13 +119,15 @@ public partial class ProfilePage : ContentPage
     {
         try
         {
-            string action = await DisplayActionSheet("More", "Cancel", "Logout", "Manage Availability", "View History", "Settings");
+            string action = await DisplayActionSheet("More", "Cancel", "Logout", "Inbox", "Manage Availability", "View History", "Settings");
             if (action == "Manage Availability")
                 await Shell.Current.GoToAsync($"{nameof(TimeSlotsPage)}", true);
             else if (action == "View History")
                 await Shell.Current.GoToAsync($"{nameof(HistoryPage)}", true);
             else if (action == "Settings")
                 await Shell.Current.GoToAsync($"{nameof(SettingsPage)}", true);
+            else if (action == "Inbox")
+                await Shell.Current.GoToAsync($"{nameof(InboxPage)}", true);
             else if (action == "Logout")
             {
                 bool confirm = await DisplayAlert("Logout", "Are you sure?", "Yes", "No");

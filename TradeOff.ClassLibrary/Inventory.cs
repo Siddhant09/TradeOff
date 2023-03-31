@@ -17,6 +17,7 @@ namespace TradeOff.ClassLibrary
         public string? Title { get; set; }
         public long? UserId { get; set; }
         public string? UserName { get; set; }
+        public string? ProfilePicUrl { get; set; }
         public string? PicUrl { get; set; }
         public string? Date { get; set; }
         public string? Description { get; set; }

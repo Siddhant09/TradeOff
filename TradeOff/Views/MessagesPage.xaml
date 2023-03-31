@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TradeOff.Views.CommentsPage"
-             Title="Comments">
+             x:Class="TradeOff.Views.MessagesPage"
+             Title="MessagesPage">
     <Shell.TitleView>
         <StackLayout Orientation="Horizontal">
             <Label 
-                Text="Comments"
+                Text="Messages"
                 TextColor="White"
                 FontAttributes="Bold"
                 VerticalTextAlignment="Center"
@@ -34,7 +34,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout
-                                Orientation="Horizontal">
+                            Orientation="Horizontal">
                                 <Frame
                                     CornerRadius="50"
                                     HeightRequest="50"
@@ -49,24 +49,24 @@
                                         HeightRequest="50"/>
                                 </Frame>
                                 <StackLayout 
-                                    Orientation="Vertical"
-                                    Margin="5"
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="Center">
-                                    <StackLayout
-                                        Orientation="Horizontal">
-                                        <Label 
-                                            Text="{Binding UserName}"
-                                            FontAttributes="Bold"
-                                            HorizontalOptions="StartAndExpand"/>
-                                        <Label 
-                                            Text="{Binding DateTIme}"
-                                            FontSize="Caption"
-                                            FontAttributes="Italic"
-                                            HorizontalOptions="Center"/>
-                                    </StackLayout>
+                                Orientation="Vertical"
+                                Margin="5"
+                                VerticalOptions="Center">
                                     <Label 
-                                        Text="{Binding Message}"/>
+                                    Text="{Binding UserName}"
+                                    FontAttributes="Bold"/>
+                                    <Label 
+                                    Text="{Binding Message}"/>
+                                </StackLayout>
+                                <StackLayout
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="Center"
+                                    Margin="5"
+                                Orientation="Vertical">
+                                    <Label 
+                                    Text="{Binding DateTIme}"
+                                    FontSize="Caption"
+                                    FontAttributes="Italic"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -81,7 +81,7 @@
                     AutoSize="TextChanges"
                     Margin="10"
                     HorizontalOptions="StartAndExpand"
-                    Placeholder="Leave a comment"/>
+                    Placeholder="Write a message"/>
                 <ImageButton
                     Source="{AppThemeBinding Light=send.png, Dark=send_white.png}"
                     HorizontalOptions="End"

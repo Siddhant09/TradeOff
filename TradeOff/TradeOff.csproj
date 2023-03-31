@@ -69,6 +69,8 @@
 	  <None Remove="Resources\Images\inventory.png" />
 	  <None Remove="Resources\Images\like.png" />
 	  <None Remove="Resources\Images\liked.png" />
+	  <None Remove="Resources\Images\location.png" />
+	  <None Remove="Resources\Images\location_white.png" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\more.png" />
 	  <None Remove="Resources\Images\notification.png" />
@@ -78,6 +80,8 @@
 	  <None Remove="Resources\Images\profile.png" />
 	  <None Remove="Resources\Images\rejected.png" />
 	  <None Remove="Resources\Images\requests.png" />
+	  <None Remove="Resources\Images\send.png" />
+	  <None Remove="Resources\Images\send_white.png" />
 	  <None Remove="Resources\Images\temp1.jpg" />
 	  <None Remove="Resources\Images\temp2.jpg" />
 	  <None Remove="Resources\Images\trade.png" />
@@ -117,7 +121,16 @@
 	  <MauiXaml Update="Views\HistoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\InboxPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\InventoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MapPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MessagesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\NewItemPage.xaml">

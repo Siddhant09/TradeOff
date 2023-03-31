@@ -75,21 +75,28 @@
                                     Margin="5"
                                     HorizontalOptions="FillAndExpand"
                                     VerticalOptions="Center">
-                                    <StackLayout
-                                        Orientation="Horizontal"
-                                        HorizontalOptions="Fill" 
-                                        VerticalOptions="Center">
-                                        <Label 
+                                    <Label 
                                             Text="{Binding UserName}"
                                             FontAttributes="Bold"/>
-                                        <!--<Label 
-                                            Text="{Binding Status}"
-                                            HorizontalOptions="EndAndExpand"/>-->
-                                    </StackLayout>
                                     <Label 
                                         Text="{Binding Date}"
                                         FontSize="Caption"
                                         FontAttributes="Italic"/>
+                                </StackLayout>
+                                <StackLayout 
+                                    Orientation="Horizontal"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Label 
+                                        Text="0.6 miles"
+                                        VerticalOptions="CenterAndExpand"
+                                        FontSize="Caption"/>
+                                    <ImageButton
+                                            Source="{AppThemeBinding Light=location.png, Dark=location_white.png}"
+                                            HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        Margin="5"
+                                            WidthRequest="25"
+                                            />
                                 </StackLayout>
                             </StackLayout>
                         <CarouselView 
