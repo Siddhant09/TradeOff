@@ -69,18 +69,15 @@
                                         HorizontalOptions="Fill" 
                                         VerticalOptions="Center">
                                     <Image
-                                            Source="outgoing.png"
+                                            Source="{Binding Type}"
                                             WidthRequest="25"
                                             Margin="0, 0, 10, 0"
                                             HorizontalOptions="EndAndExpand"/>
                                     <Image
-                                            Source="accepted.png"
+                                            Source="{Binding Status}"
                                             WidthRequest="25"
                                             Margin="0, 0, 5, 0"
                                             HorizontalOptions="End"/>
-                                    <!--<Label 
-                                            Text="{Binding Status}"
-                                            HorizontalOptions="EndAndExpand"/>-->
                                 </StackLayout>
                             </StackLayout>
                         <StackLayout
@@ -147,7 +144,7 @@
                                                     Margin="5"
                                                     FontSize="18" />
                                             <Label 
-                                                    Text="4"
+                                                    Text="{Binding IComments}"
                                                     Margin="0, 8, 5, 0"
                                                     VerticalOptions="Start"
                                                     HorizontalOptions="EndAndExpand" />
@@ -170,7 +167,7 @@
                                                     Margin="5"
                                                     FontSize="18" />
                                             <Label 
-                                                    Text="4"
+                                                    Text="{Binding OComments}"
                                                     Margin="0, 8, 5, 0"
                                                     VerticalOptions="Start"
                                                     HorizontalOptions="EndAndExpand" />

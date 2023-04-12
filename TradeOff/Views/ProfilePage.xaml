@@ -79,24 +79,23 @@
                 <Entry 
                 x:Name="txtAddress"
                 Placeholder="Street Address" 
-                Text="359, North West Street"/>
+                Text="{Binding Address}"/>
 
                 <Entry 
                 x:Name="txtCity"
                 Placeholder="City" 
-                Text="Indianapolis"/>
+                Text="{Binding City}"/>
 
                 <Entry 
                 x:Name="txtPincode"
                 Placeholder="Pincode" 
-                Text="46202"/>
-            
+                Text="{Binding Pincode}"/>
+
                 <Picker x:Name="ddlState"
-                Title="--Select State--">
-                    <Picker.Items>
-                        <x:String>Indiana</x:String>
-                    </Picker.Items>
-                </Picker>
+                Title="--Select State--"
+                        SelectedIndex="{Binding StateId}"
+                ItemsSource="{Binding StatesList}"
+                ItemDisplayBinding="{Binding LookupName}"/>
 
                 <Button 
                 x:Name="btnUpdate"

@@ -27,6 +27,7 @@ namespace TradeOff.ClassLibrary
         //public string? ITags { get; set; }
         public int? ILikes { get; set; }
         public int? IDislikes { get; set; }
+        public int? IComments { get; set; }
         public string? ILike { get; set; }
         public List<LookupOption>? IImageList { get; set; }
         public List<LookupOption>? ITagList { get; set; }
@@ -47,6 +48,7 @@ namespace TradeOff.ClassLibrary
         //public string? OTags { get; set; }
         public int? OLikes { get; set; }
         public int? ODislikes { get; set; }
+        public int? OComments { get; set; }
         public string? OLike { get; set; }
         public List<LookupOption>? OImageList { get; set; }
         public List<LookupOption>? OTagList { get; set; }

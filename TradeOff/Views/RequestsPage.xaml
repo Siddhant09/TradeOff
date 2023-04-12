@@ -84,14 +84,10 @@
                                     HorizontalOptions="Fill" 
                                     VerticalOptions="Center">
                                     <Image
-                                            Source="incoming.png"
+                                            Source="{Binding Type}"
                                             WidthRequest="25"
                                             Margin="0, 0, 10, 0"
                                             HorizontalOptions="EndAndExpand"/>
-                                    <!--<Label 
-                                        TextColor="{Binding Color}"
-                                        Text="{Binding Type}"
-                                        HorizontalOptions="EndAndExpand"/>-->
                                 </StackLayout>
                             </StackLayout>
                         <StackLayout
@@ -199,7 +195,7 @@
                                                     Margin="5"
                                                     FontSize="18" />
                                                 <Label 
-                                                    Text="4"
+                                                    Text="{Binding IComments}"
                                                     Margin="0, 8, 5, 0"
                                                     VerticalOptions="Start"
                                                     HorizontalOptions="EndAndExpand" />
@@ -222,7 +218,7 @@
                                                     Margin="5"
                                                     FontSize="18" />
                                                 <Label 
-                                                    Text="4"
+                                                    Text="{Binding OComments}"
                                                     Margin="0, 8, 5, 0"
                                                     VerticalOptions="Start"
                                                     HorizontalOptions="EndAndExpand" />

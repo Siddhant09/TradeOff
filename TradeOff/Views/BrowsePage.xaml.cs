@@ -205,7 +205,7 @@ public partial class BrowsePage : ContentPage
         {
             SwipeItem a = (SwipeItem)sender;
             Product product = (Product)a.CommandParameter;
-            if (product.Disiked == true)
+            if (product.Disliked == true)
             {
                 var toast = Toast.Make("Product already disliked");
                 await toast.Show();

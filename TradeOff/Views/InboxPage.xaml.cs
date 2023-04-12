@@ -1,12 +1,16 @@
 using CommunityToolkit.Maui.Alerts;
 using TradeOff.ClassLibrary;
+using TradeOff.Services;
 
 namespace TradeOff.Views;
 
 public partial class InboxPage : ContentPage
 {
-	public InboxPage()
+    ProfileServices _profileServices;
+
+    public InboxPage()
 	{
+        _profileServices = new ProfileServices();
 		InitializeComponent();
     }
 
@@ -16,39 +20,39 @@ public partial class InboxPage : ContentPage
         base.OnAppearing();
     }
 
-    public void GetDataAsync()
+    public async void GetDataAsync()
     {
-        List<Notification> data = new List<Notification>();
-        data.Add(new Notification { UserProfilePicUrl = "temp2.jpg", UserName = "Nithika Sanghi", Message = "Nice collection, looks good", IsNew = true, DateTIme = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt") });
-        data.Add(new Notification { UserProfilePicUrl = "pro.png", UserName = "John Snow", Message = "WOW", IsNew = false, DateTIme = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt") });
-        data.Add(new Notification { UserProfilePicUrl = "user_profile.png", UserName = "Katy Perry", Message = "Its really nice", IsNew = false, DateTIme = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt") });
+        //List<Notification> data = new List<Notification>();
+        //data.Add(new Notification { UserProfilePicUrl = "temp2.jpg", UserName = "Nithika Sanghi", Message = "Nice collection, looks good", IsNew = true, DateTime = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt") });
+        //data.Add(new Notification { UserProfilePicUrl = "pro.png", UserName = "John Snow", Message = "WOW", IsNew = false, DateTime = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt") });
+        //data.Add(new Notification { UserProfilePicUrl = "user_profile.png", UserName = "Katy Perry", Message = "Its really nice", IsNew = false, DateTime = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt") });
 
-        this.BindingContext = data;
+        //this.BindingContext = data;
 
-        //actInd.IsRunning = actInd.IsVisible = true;
-        //Task<Response<List<Notification>>> task = new Task<Response<List<Notification>>>(() => _profileServices.GetNotifications());
-        //task.Start();
+        actInd.IsRunning = actInd.IsVisible = true;
+        Task<Response<List<Notification>>> task = new Task<Response<List<Notification>>>(() => _profileServices.GetInbox());
+        task.Start();
 
-        //var response = await task;
-        //if (response != null)
-        //{
-        //    actInd.IsRunning = actInd.IsVisible = false;
-        //    if (response.Success)
-        //    {
-        //        this.BindingContext = response.Data;
-        //    }
-        //    else
-        //    {
-        //        var toast = Toast.Make(response.Message);
-        //        await toast.Show();
-        //    }
-        //}
-        //else
-        //{
-        //    actInd.IsRunning = actInd.IsVisible = false;
-        //    var toast = Toast.Make("Something went wrong, please try again");
-        //    await toast.Show();
-        //}
+        var response = await task;
+        if (response != null)
+        {
+            actInd.IsRunning = actInd.IsVisible = false;
+            if (response.Success)
+            {
+                this.BindingContext = response.Data;
+            }
+            else
+            {
+                var toast = Toast.Make(response.Message);
+                await toast.Show();
+            }
+        }
+        else
+        {
+            actInd.IsRunning = actInd.IsVisible = false;
+            var toast = Toast.Make("Something went wrong, please try again");
+            await toast.Show();
+        }
     }
 
     private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

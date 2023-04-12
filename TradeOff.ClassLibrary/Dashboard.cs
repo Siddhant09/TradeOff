@@ -11,7 +11,7 @@ namespace TradeOff.ClassLibrary
         public List<Product>? MostLiked { get; set; }
         public List<Product>? MostDisliked { get; set; }
         public List<Product>? MostRequested { get; set; }
-        public List<Product>? Users { get; set; }
+        public List<User>? Users { get; set; }
 
         //public Dashboard GetDashboard()
         //{

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TradeOff.ClassLibrary
 {
-    public class Notification
+    public class Notification1
     {
         public long? FromUserId { get; set; }
         public long? ToUserId { get; set; }
         public string? UserName { get; set; }
         public string? UserProfilePicUrl { get; set; }
         public string? Message { get; set; }
-        public string? DateTIme { get; set; }
+        public string? DateTime { get; set; }
         public bool IsNew { get; set; }
     }
 }

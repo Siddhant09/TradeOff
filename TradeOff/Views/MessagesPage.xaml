@@ -64,7 +64,7 @@
                                     Margin="5"
                                 Orientation="Vertical">
                                     <Label 
-                                    Text="{Binding DateTIme}"
+                                    Text="{Binding DateTime}"
                                     FontSize="Caption"
                                     FontAttributes="Italic"/>
                                 </StackLayout>
@@ -86,6 +86,8 @@
                     Source="{AppThemeBinding Light=send.png, Dark=send_white.png}"
                     HorizontalOptions="End"
                     Margin="10"
+                    x:Name="btnSend"
+                    Clicked="btnSend_Clicked"
                     WidthRequest="25"/>
             </StackLayout>
         </StackLayout>

@@ -68,14 +68,14 @@
                                         <Label 
                                             Text="From: "/>
                                         <Label 
-                                            Text="{Binding From}"/>
+                                            Text="{Binding strFrom}"/>
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout
                                     Margin="5, 1">
                                         <Label 
                                             Text="To: "/>
                                         <Label 
-                                            Text="{Binding To}"/>
+                                            Text="{Binding strTo}"/>
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout
                                     Margin="5, 1">

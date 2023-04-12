@@ -157,13 +157,13 @@
                                             Margin="5"
                                             FontSize="18" />
                                         <Image 
-                                            Source="liked.png"
+                                            Source="{Binding Status}"
                                             WidthRequest="25"
                                             Margin="0, 0, 15, 0"
                                             VerticalOptions="Start"
                                             HorizontalOptions="EndAndExpand"/>
                                         <Label 
-                                            Text="4"
+                                            Text="{Binding Comments}"
                                             Margin="0, 3, 5, 0"
                                             VerticalOptions="Start"
                                             HorizontalOptions="End" />

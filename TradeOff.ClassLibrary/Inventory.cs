@@ -29,13 +29,14 @@ namespace TradeOff.ClassLibrary
         public string? Condition { get; set; }
         public int? Likes { get; set; }
         public int? Dislikes { get; set; }
+        public int? Comments { get; set; }
         public string? Tags { get; set; }
         public string? Details { get; set; }
         public string? Like { get; set; }
         public List<LookupOption>? ImageList { get; set; }
         public List<LookupOption>? TagList { get; set; }
         public bool? Liked { get; set; }
-        public bool? Disiked { get; set; }
+        public bool? Disliked { get; set; }
         public string? Status { get; set; }
     }
 

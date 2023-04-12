@@ -64,7 +64,7 @@
                                 <Label 
                                     Text="{Binding Message}"/>
                                 <Label 
-                                    Text="{Binding DateTIme}"
+                                    Text="{Binding DateTime}"
                                     FontSize="Caption"
                                     FontAttributes="Italic"/>
                             </StackLayout>

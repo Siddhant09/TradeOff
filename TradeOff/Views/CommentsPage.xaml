@@ -60,7 +60,7 @@
                                             FontAttributes="Bold"
                                             HorizontalOptions="StartAndExpand"/>
                                         <Label 
-                                            Text="{Binding DateTIme}"
+                                            Text="{Binding DateTime}"
                                             FontSize="Caption"
                                             FontAttributes="Italic"
                                             HorizontalOptions="Center"/>
@@ -86,6 +86,7 @@
                     Source="{AppThemeBinding Light=send.png, Dark=send_white.png}"
                     HorizontalOptions="End"
                     Margin="10"
+                    Clicked="ImageButton_Clicked"
                     WidthRequest="25"/>
             </StackLayout>
         </StackLayout>

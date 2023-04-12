@@ -192,5 +192,152 @@ namespace TradeOff.Services
             }
             return response;
         }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Mar 2023
+        //Description   : To get inbox
+        public Response<List<Notification>> GetInbox()
+        {
+            Response<List<Notification>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpGetRequest(Urls.GetInboxUrl, null);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Notification>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Mar 2023
+        //Description   : To get inbox
+        public Response<List<Notification>> GetMessages(long? userId)
+        {
+            Response<List<Notification>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpGetRequest(Urls.GetMessagesUrl + userId, null);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Notification>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Mar 2023
+        //Description   : To send messages
+        public Response<List<Notification>> SendMessage(Notification message)
+        {
+            Response<List<Notification>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpPostRequest(message, Urls.SendMessageUrl);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Notification>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Mar 2023
+        //Description   : To get availability
+        public Response<List<Availability>> GetAvailability()
+        {
+            Response<List<Availability>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpGetRequest(Urls.GetAvailabilityUrl, null);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Availability>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Mar 2023
+        //Description   : To upsert availability
+        public Response<List<Availability>> UpsertAvailability(Availability availability)
+        {
+            Response<List<Availability>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpPostRequest(availability, Urls.UpsertAvailabilityUrl);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Availability>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Mar 2023
+        //Description   : To get settings
+        public Response<User> GetSettings()
+        {
+            Response<User> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpGetRequest(Urls.GetSettingsUrl, null);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<User>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Mar 2023
+        //Description   : To update settings
+        public Response<User> UpdateSettings(User user)
+        {
+            Response<User> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpPostRequest(user, Urls.UpdateSettingsUrl);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<User>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
     }
 }

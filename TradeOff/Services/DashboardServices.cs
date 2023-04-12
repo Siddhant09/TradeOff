@@ -14,7 +14,7 @@ namespace TradeOff.Services
             try
             {
                 //posting request through http method
-                var httpResponse = HTTPServices.HttpGetRequest(Urls.GetDashboardUrl + "?filter=" + filter, null);
+                var httpResponse = HTTPServices.HttpGetRequest(Urls.GetDashboardUrl + filter, null);
                 //converting http response into model class
                 if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
                     response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<Dashboard>>(httpResponse.Content);

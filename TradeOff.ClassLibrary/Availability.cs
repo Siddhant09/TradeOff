@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TradeOff.ClassLibrary
 {
-    public class Availability
+    public class Availability1
     {
         public long? AvailabilityId { get; set; }
         public string? From { get; set; }

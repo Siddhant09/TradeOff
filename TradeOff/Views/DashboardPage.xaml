@@ -44,6 +44,7 @@
                 Padding="5,0">
 
             <Picker x:Name="ddlDateRange"
+                    SelectedIndexChanged="ddlDateRange_SelectedIndexChanged"
                 Title="--Select--">
                 <Picker.Items>
                     <x:String>Last 7 Days</x:String>
@@ -229,7 +230,7 @@
                                 Margin="5"
                                 VerticalOptions="Center">
                                 <Label 
-                                    Text="{Binding UserName}"
+                                    Text="{Binding FirstName}"
                                     FontAttributes="Bold"/>
                                 <Label 
                                     Text="{Binding Date}"
@@ -241,7 +242,7 @@
                                 VerticalOptions="CenterAndExpand"
                                 Orientation="Horizontal">
                                     <Label
-                                        Text="{Binding Likes}"
+                                        Text="{Binding StateId}"
                                         FontSize="40"
                                         TextColor="LightGreen"/>
                                     <!--<Label

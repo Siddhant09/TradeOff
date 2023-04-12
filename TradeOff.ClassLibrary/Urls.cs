@@ -8,7 +8,7 @@ namespace TradeOff.ClassLibrary
 {
     public class Urls
     {
-        public const string BaseUrl = "https://tradeoffapi.siddhantchawade.com/"; // "http://10.0.2.2:59485/"; // "http://192.168.0.115:59485";
+        public const string BaseUrl = "https://tradeoffapi.siddhantchawade.com/";
 
         //Profile
         public const string SignUpUrl = "api/sign-up";
@@ -20,6 +20,14 @@ namespace TradeOff.ClassLibrary
         public const string GetNotificationsUrl = "api/get-notifications";
         public const string DeleteNotificationsUrl = "api/delete-notifications";
         public const string UpdateNotificationStatusUrl = "api/update-notification-status";
+        public const string GetInboxUrl = "api/get-inbox";
+        public const string GetMessagesUrl = "api/get-messages?userId1=";
+        public const string SendMessageUrl = "api/send-messages";
+        public const string GetAvailabilityUrl = "api/get-availability";
+        public const string UpsertAvailabilityUrl = "api/upsert-availability";
+        public const string DeleteAvailabilityUrl = "api/delete-availability";
+        public const string GetSettingsUrl = "api/get-settings";
+        public const string UpdateSettingsUrl = "api/update-settings";
 
         //Inventory
         public const string GetInventoryOptionsUrl = "api/get-inventory-options";
@@ -28,13 +36,15 @@ namespace TradeOff.ClassLibrary
         public const string DeleteProductUrl = "api/delete-product";
 
         //Browse
-        public const string GetBrowseUrl = "api/get-browse";
+        public const string GetBrowseUrl = "api/get-browse?keyword=";
         public const string LikeProductUrl = "api/like-product";
         public const string DislikeProductUrl = "api/dislike-product";
         public const string RequestTradeUrl = "api/request-trade";
+        public const string GetCommentsUrl = "api/get-comments";
+        public const string InsertCommentUrl = "api/insert-comment";
 
         //Dashboard
-        public const string GetDashboardUrl = "api/get-dashboard";
+        public const string GetDashboardUrl = "api/get-dashboard?filter=";
 
         //Request
         public const string GetTradeRequestsUrl = "api/get-trade-requests";

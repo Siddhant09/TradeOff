@@ -13,7 +13,17 @@
                 FontSize="17"/>
         </StackLayout>
     </Shell.TitleView>
-    <VerticalStackLayout
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
+        <VerticalStackLayout Grid.Row="0" Grid.Column="0"
         Margin="5">
         <StackLayout
             Orientation="Horizontal"
@@ -21,7 +31,9 @@
             <Label 
             Text="Push Notifications" 
                 VerticalOptions="CenterAndExpand"/>
-            <Switch IsToggled="true"
+            <Switch 
+                IsToggled="{Binding PushNotification}"
+                x:Name="btnPush"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"/>
         </StackLayout>
@@ -31,7 +43,9 @@
             <Label 
             Text="Email Notifications" 
                 VerticalOptions="CenterAndExpand"/>
-            <Switch IsToggled="true"
+            <Switch
+                IsToggled="{Binding EmailNotification}"
+                x:Name="btnEmail"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"/>
         </StackLayout>
@@ -53,6 +67,10 @@
                     <x:String>Light</x:String>
                 </Picker.Items>
             </Picker>
-        </StackLayout>
-    </VerticalStackLayout>
+            </StackLayout>
+            <Button 
+                x:Name="btnUpdate"
+                Text="Save" Clicked="btnUpdate_Clicked" />
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
