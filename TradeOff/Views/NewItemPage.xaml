@@ -24,55 +24,69 @@
         </Grid.ColumnDefinitions>
         <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
         <ScrollView Grid.Row="0" Grid.Column="0">
-        <VerticalStackLayout
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
                 Spacing="25"
                 Padding="10,0">
 
             <Entry
                 x:Name="txtTitle"
+                Margin="5"
                 Placeholder="Enter Title"/>
 
             <Editor
                 x:Name="txtDescription"
                 AutoSize="TextChanges"
+                Margin="5"
                 Placeholder="Enter Desctiption"/>
 
                 <Picker x:Name="ddlCategory"
                 Title="--Select Category--"
+                Margin="5"
                 ItemsSource="{Binding CategoryList}"
                 ItemDisplayBinding="{Binding LookupName}"/> 
 
                 <Picker x:Name="ddlAge"
                 Title="--Select Age--"
+                Margin="5"
                 ItemsSource="{Binding AgeList}"
                 ItemDisplayBinding="{Binding LookupName}"/>
 
                 <Picker x:Name="ddlCondition"
                 Title="--Select Condition--"
+                Margin="5"
                 ItemsSource="{Binding ConditionList}"
                 ItemDisplayBinding="{Binding LookupName}"/>
 
                 <Entry
                 x:Name="txtTags"
+                Margin="5"
                 Placeholder="Enter Tags (comma separated)"/>
 
             <Button
                 x:Name="btnUpload"
-                Text="Upload Images"
+                Text="Select Images"
+                Margin="5"
+                VerticalOptions="EndAndExpand"
                 Clicked="btnUpload_Clicked"/>
 
             <Button
                 x:Name="btnSave"
                 Text="Save"
+                Margin="5"
+                VerticalOptions="End"
                 Clicked="btnSave_Clicked"/>
 
             <Button
                 x:Name="btnCancel"
                 Text="Cancel"
+                Margin="5"
                 BackgroundColor="Red"
                 TextColor="White"
+                VerticalOptions="End"
                 Clicked="btnCancel_Clicked"/>
-        </VerticalStackLayout>
+        </StackLayout>
         </ScrollView>
     </Grid>
 </ContentPage>

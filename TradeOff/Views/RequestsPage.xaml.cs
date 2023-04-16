@@ -12,14 +12,14 @@ public partial class RequestsPage : ContentPage
     {
         _requestServices = new RequestServices();
         InitializeComponent();
-        GetDataAsync();
+        //GetDataAsync();
     }
 
-    //protected override async void OnAppearing()
-    //{
-    //    await GetDataAsync();
-    //    base.OnAppearing();
-    //}
+    protected override async void OnAppearing()
+    {
+        await GetDataAsync();
+        base.OnAppearing();
+    }
 
     public async Task GetDataAsync()
     {
@@ -182,11 +182,47 @@ public partial class RequestsPage : ContentPage
         }
     }
 
+
     private async void btnComments_Clicked(object sender, EventArgs e)
     {
         try
         {
-            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true);
+            ImageButton a = (ImageButton)sender;
+            Request request = (Request)a.CommandParameter;
+            Product product = new Product()
+            {
+                ProductId = Preferences.Default.Get("authToken", string.Empty) == request.IUserName ? request.OProductId : request.IProductId,
+                UserId = Preferences.Default.Get("authToken", string.Empty) == request.IUserName ? request.OUserId : request.IUserId
+            };
+            var param = new Dictionary<string, object>
+                {
+                    { "Product", product }
+                };
+            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true, param);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
+    }
+
+    private async void btnComments1_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            ImageButton a = (ImageButton)sender;
+            Request request = (Request)a.CommandParameter;
+            Product product = new Product()
+            {
+                ProductId = Preferences.Default.Get("authToken", string.Empty) != request.IUserName ? request.OProductId : request.IProductId,
+                UserId = Preferences.Default.Get("authToken", string.Empty) != request.IUserName ? request.OUserId : request.IUserId
+            };
+            var param = new Dictionary<string, object>
+                {
+                    { "Product", product }
+                };
+            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true, param);
         }
         catch (Exception ex)
         {

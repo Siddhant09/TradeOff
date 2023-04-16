@@ -40,7 +40,7 @@ namespace TradeOff.ClassLibrary
         public const string LikeProductUrl = "api/like-product";
         public const string DislikeProductUrl = "api/dislike-product";
         public const string RequestTradeUrl = "api/request-trade";
-        public const string GetCommentsUrl = "api/get-comments";
+        public const string GetCommentsUrl = "api/get-comments?productId=";
         public const string InsertCommentUrl = "api/insert-comment";
 
         //Dashboard

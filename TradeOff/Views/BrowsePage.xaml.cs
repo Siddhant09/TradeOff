@@ -17,16 +17,16 @@ public partial class BrowsePage : ContentPage
         _browseServices = new BrowseServices();
         _inventoryServices = new InventoryServices();
         InitializeComponent();
-        GetDataAsync();
-        GetInventoryAsync();
+        //GetDataAsync();
+        //GetInventoryAsync();
     }
 
-    //protected override async void OnAppearing()
-    //{
-    //    await GetDataAsync();
-    //    await GetInventoryAsync();
-    //    base.OnAppearing();
-    //}
+    protected override async void OnAppearing()
+    {
+        await GetDataAsync();
+        await GetInventoryAsync();
+        base.OnAppearing();
+    }
 
     protected async void OnRefresh()
     {
@@ -250,7 +250,13 @@ public partial class BrowsePage : ContentPage
     {
         try
         {
-            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true);
+            ImageButton a = (ImageButton)sender;
+            Product product = (Product)a.CommandParameter;
+            var param = new Dictionary<string, object>
+                {
+                    { "Product", product }
+                };
+            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true, param);
         }
         catch (Exception ex)
         {

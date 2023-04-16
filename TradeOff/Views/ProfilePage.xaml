@@ -39,12 +39,9 @@
         </Grid.ColumnDefinitions>
         <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
         <ScrollView Grid.Row="0" Grid.Column="0">
-        <VerticalStackLayout
+            <VerticalStackLayout
                 Spacing="25"
                 Padding="5,0">
-            
-            <Label 
-                Text="Hello!"/>
                 <Frame
                     CornerRadius="250"
                     HeightRequest="250"
@@ -52,7 +49,9 @@
                     IsClippedToBounds="True"
                     HorizontalOptions="Center"
                     VerticalOptions="Center">
-                    <Image 
+                    <ImageButton 
+                        x:Name="btnPic"
+                        Clicked="btnPic_Clicked"
                         Source="{Binding ProfilePicUrl}"
                         Aspect="AspectFill"
                         Margin="-20"

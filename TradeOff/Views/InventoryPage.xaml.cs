@@ -11,14 +11,14 @@ public partial class InventoryPage : ContentPage
     {
         _inventoryServices = new InventoryServices();
         InitializeComponent();
-        GetDataAsync();
+        //GetDataAsync();
     }
 
-    //protected override async void OnAppearing()
-    //{
-    //    await GetDataAsync();
-    //    base.OnAppearing();
-    //}
+    protected override async void OnAppearing()
+    {
+        await GetDataAsync();
+        base.OnAppearing();
+    }
 
     public async Task GetDataAsync()
     {
@@ -63,7 +63,7 @@ public partial class InventoryPage : ContentPage
     {
         try
         {
-            if(await DisplayAlert("Delete This Product", "Are you sure?", "Yes", "No"))
+            if(await DisplayAlert("Confirm Delete", "Are you sure?", "Yes", "No"))
             {
                 SwipeItem a = (SwipeItem)sender;
                 Product product = (Product)a.CommandParameter;
@@ -99,16 +99,36 @@ public partial class InventoryPage : ContentPage
         }
     }
 
-    private void btnEdit_Clicked(object sender, EventArgs e)
+    private async void btnEdit_Clicked(object sender, EventArgs e)
     {
-
+        try
+        {
+            SwipeItem a = (SwipeItem)sender;
+            Product product = (Product)a.CommandParameter;
+            var param = new Dictionary<string, object>
+                {
+                    { "Product", product }
+                };
+            await Shell.Current.GoToAsync($"{nameof(NewItemPage)}", true, param);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
     }
 
     private async void btnComments_Clicked(object sender, EventArgs e)
     {
         try
         {
-            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true);
+            ImageButton a = (ImageButton)sender;
+            Product product = (Product)a.CommandParameter;
+            var param = new Dictionary<string, object>
+                {
+                    { "Product", product }
+                };
+            await Shell.Current.GoToAsync($"{nameof(CommentsPage)}", true, param);
         }
         catch (Exception ex)
         {

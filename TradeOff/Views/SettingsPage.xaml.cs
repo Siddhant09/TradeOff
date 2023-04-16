@@ -9,7 +9,9 @@ public partial class SettingsPage : ContentPage
     ProfileServices _profileServices;
     public SettingsPage()
 	{
-		InitializeComponent();
+        _profileServices = new ProfileServices();
+
+        InitializeComponent();
 
         GetDataAsync();
         if (Application.Current.UserAppTheme == AppTheme.Dark)
@@ -29,7 +31,10 @@ public partial class SettingsPage : ContentPage
             actInd.IsRunning = actInd.IsVisible = false;
             if (response.Success)
             {
-                this.BindingContext = response.Data;
+                btnPush.IsToggled = Convert.ToBoolean(response.Data.PushNotification);
+                btnEmail.IsToggled = Convert.ToBoolean(response.Data.EmailNotification);
+                ddlTheme.SelectedIndex = response.Data.IsDarkTheme == true ? 0 : 1;
+                //this.BindingContext = response.Data;
             }
             else
             {

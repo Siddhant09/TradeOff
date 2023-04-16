@@ -23,67 +23,80 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
-        <VerticalStackLayout Grid.Row="0" Grid.Column="0"
-        Margin="5">
+        <StackLayout 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Grid.Row="0" 
+            Grid.Column="0"
+            Margin="5">
         <HorizontalStackLayout>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="From: " />
             <TimePicker
-                x:Name="tpFrom"/>
+                x:Name="tpFrom"
+                Time="{Binding FromTime}"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="To: " />
             <TimePicker
-                x:Name="tpTo"/>
+                x:Name="tpTo"
+                Time="{Binding ToTime}"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <CheckBox
-                x:Name="cbSunday"/>
+                x:Name="cbSunday"
+                IsChecked="{Binding Sunday}"/>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="Sunday" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <CheckBox
-                x:Name="cbMonday"/>
+                x:Name="cbMonday"
+                IsChecked="{Binding Monday}"/>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="Monday" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <CheckBox
-                x:Name="cbTuesday"/>
+                x:Name="cbTuesday"
+                IsChecked="{Binding Tuesday}"/>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="Tuesday" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <CheckBox
-                x:Name="cbWednesday"/>
+                x:Name="cbWednesday"
+                IsChecked="{Binding Wednesday}"/>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="Wednesday" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <CheckBox
-                x:Name="cbThursday"/>
+                x:Name="cbThursday"
+                IsChecked="{Binding Thursday}"/>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="Thursday" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <CheckBox
-                x:Name="cbFriday"/>
+                x:Name="cbFriday"
+                IsChecked="{Binding Friday}"/>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="Friday" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <CheckBox
-                x:Name="cbSaturday"/>
+                x:Name="cbSaturday"
+                IsChecked="{Binding Saturday}"/>
             <Label 
                 VerticalOptions="CenterAndExpand"
                 Text="Saturday" />
@@ -102,6 +115,6 @@
                 TextColor="White"
                 VerticalOptions="End"
                 Clicked="btnCancel_Clicked"/>
-        </VerticalStackLayout>
+        </StackLayout>
     </Grid>
 </ContentPage>

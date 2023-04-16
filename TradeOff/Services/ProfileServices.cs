@@ -91,13 +91,13 @@ namespace TradeOff.Services
         //Author        : Siddhant Chawade
         //Date          : 1st Dec 2022
         //Description   : To update profile
-        public Response<User> UpdateProfile(User user)
+        public Response<User> UpdateProfile(User user, byte[] bytes, string fileName)
         {
             Response<User> response = null;
             try
             {
                 //posting request through http method
-                var httpResponse = HTTPServices.HttpPostRequest(user, Urls.UpdateProfileUrl);
+                var httpResponse = HTTPServices.HttpPostFormDateRequest(user, Urls.UpdateProfileUrl, bytes, fileName);
                 //converting http response into model class
                 if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
                     response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<User>>(httpResponse.Content);
@@ -287,6 +287,27 @@ namespace TradeOff.Services
             {
                 //posting request through http method
                 var httpResponse = HTTPServices.HttpPostRequest(availability, Urls.UpsertAvailabilityUrl);
+                //converting http response into model class
+                if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Availability>>>(httpResponse.Content);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return response;
+        }
+
+        //Author        : Siddhant Chawade
+        //Date          : 6th Mar 2023
+        //Description   : To delete availability
+        public Response<List<Availability>> DeleteAvailability(Availability availability)
+        {
+            Response<List<Availability>> response = null;
+            try
+            {
+                //posting request through http method
+                var httpResponse = HTTPServices.HttpPostRequest(availability, Urls.DeleteAvailabilityUrl);
                 //converting http response into model class
                 if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
                     response = Newtonsoft.Json.JsonConvert.DeserializeObject<Response<List<Availability>>>(httpResponse.Content);

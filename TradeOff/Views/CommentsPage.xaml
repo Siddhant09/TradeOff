@@ -80,7 +80,7 @@
                     x:Name="txtComment"
                     AutoSize="TextChanges"
                     Margin="10"
-                    HorizontalOptions="StartAndExpand"
+                    HorizontalOptions="FillAndExpand"
                     Placeholder="Leave a comment"/>
                 <ImageButton
                     Source="{AppThemeBinding Light=send.png, Dark=send_white.png}"

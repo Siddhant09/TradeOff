@@ -42,7 +42,7 @@
         <CarouselView Grid.Row="0" Grid.Column="0"
         ItemsSource="{Binding .}" 
         Loop="False"
-        EmptyView="No items to display.">
+        EmptyView="Nothing to display">
         <CarouselView.ItemsLayout>
             <LinearItemsLayout 
                 Orientation="Vertical"
@@ -170,6 +170,7 @@
                                         <ImageButton
                                             x:Name="btnComments"
                                             Source="{AppThemeBinding Light=comment.png, Dark=comment_white.png}"
+                                            CommandParameter="{Binding .}"
                                             WidthRequest="25"
                                             Margin="0, -13, 5, 0"
                                             VerticalOptions="Start"

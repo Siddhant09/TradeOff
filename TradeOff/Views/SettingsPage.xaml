@@ -23,8 +23,12 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ActivityIndicator Grid.Row="0" Grid.Column="0" x:Name="actInd" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="65" WidthRequest="65"  ZIndex="99"/>
-        <VerticalStackLayout Grid.Row="0" Grid.Column="0"
-        Margin="5">
+        <StackLayout 
+            Grid.Row="0" 
+            Grid.Column="0"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Margin="5">
         <StackLayout
             Orientation="Horizontal"
             HorizontalOptions="Fill">
@@ -32,7 +36,6 @@
             Text="Push Notifications" 
                 VerticalOptions="CenterAndExpand"/>
             <Switch 
-                IsToggled="{Binding PushNotification}"
                 x:Name="btnPush"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"/>
@@ -44,7 +47,6 @@
             Text="Email Notifications" 
                 VerticalOptions="CenterAndExpand"/>
             <Switch
-                IsToggled="{Binding EmailNotification}"
                 x:Name="btnEmail"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="EndAndExpand"/>
@@ -70,7 +72,8 @@
             </StackLayout>
             <Button 
                 x:Name="btnUpdate"
+                VerticalOptions="EndAndExpand"
                 Text="Save" Clicked="btnUpdate_Clicked" />
-        </VerticalStackLayout>
+        </StackLayout>
     </Grid>
 </ContentPage>

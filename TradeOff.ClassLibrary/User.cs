@@ -24,6 +24,7 @@ namespace TradeOff.ClassLibrary
         public bool? PushNotification { get; set; }
         public bool? EmailNotification { get; set; }
         public bool? IsDarkTheme { get; set; }
+        public string? Date { get; set; }
         public List<LookupOption>? StatesList { get; set; }
     }
     public class Notification
@@ -45,6 +46,8 @@ namespace TradeOff.ClassLibrary
         public long? UserId { get; set; }
         public DateTime? From { get; set; }
         public DateTime? To { get; set; }
+        public TimeSpan? FromTime { get; set; }
+        public TimeSpan? ToTime { get; set; }
         public string? strFrom { get; set; }
         public string? strTo { get; set; }
         public string? Days { get; set; }

@@ -1,11 +1,10 @@
 using CommunityToolkit.Maui.Alerts;
-using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
 using TradeOff.ClassLibrary;
 using TradeOff.Services;
 
 namespace TradeOff.Views;
 
+[QueryProperty(nameof(Product), "Product")]
 public partial class NewItemPage : ContentPage
 {
     UploadImage _uploadImage { get; set; }
@@ -13,6 +12,17 @@ public partial class NewItemPage : ContentPage
     byte[] _imageBytes;
     string _fileName;
     bool _reload = true;
+
+    Product product;
+    public Product Product
+    {
+        get => product;
+        set
+        {
+            product = value;
+            OnPropertyChanged();
+        }
+    }
     public NewItemPage()
     {
         _inventoryServices = new InventoryServices();
@@ -24,6 +34,7 @@ public partial class NewItemPage : ContentPage
     {
         if(_reload )
             await GetDataAsync();
+
         base.OnAppearing();
     }
 
@@ -38,7 +49,18 @@ public partial class NewItemPage : ContentPage
         {
             actInd.IsRunning = actInd.IsVisible = false;
             if (response.Success)
+            {
                 this.BindingContext = response.Data;
+                if (product != null)
+                {
+                    txtTitle.Text = product.Title;
+                    txtDescription.Text = product.Description;
+                    ddlCategory.SelectedItem = response.Data.CategoryList.Where(x => x.LookupId == product.CategoryId).FirstOrDefault();
+                    ddlCondition.SelectedItem = response.Data.ConditionList.Where(x => x.LookupId == product.ConditionId).FirstOrDefault();
+                    ddlAge.SelectedItem = response.Data.AgeList.Where(x => x.LookupId == product.AgeId).FirstOrDefault();
+                    txtTags.Text = product.Tags;
+                }
+            }
             else
             {
                 var toast = Toast.Make(response.Message);
@@ -100,23 +122,24 @@ public partial class NewItemPage : ContentPage
                 var toast = Toast.Make("Tag is required");
                 await toast.Show();
             }
-            else if (string.IsNullOrEmpty(_fileName))
+            else if (string.IsNullOrEmpty(_fileName) && product == null)
             {
                 var toast = Toast.Make("Image is required");
                 await toast.Show();
             }
             else
             {
-                Product product = new Product();
-                product.Title = txtTitle.Text;
-                product.Description = txtDescription.Text;
-                product.CategoryId = ((LookupOption)ddlCategory.SelectedItem).LookupId;
-                product.AgeId = ((LookupOption)ddlAge.SelectedItem).LookupId;
-                product.ConditionId = ((LookupOption)ddlCondition.SelectedItem).LookupId;
-                product.Tags = txtTags.Text;
+                Product pro = new Product();
+                pro.ProductId = product != null ? product.ProductId : null;
+                pro.Title = txtTitle.Text;
+                pro.Description = txtDescription.Text;
+                pro.CategoryId = ((LookupOption)ddlCategory.SelectedItem).LookupId;
+                pro.AgeId = ((LookupOption)ddlAge.SelectedItem).LookupId;
+                pro.ConditionId = ((LookupOption)ddlCondition.SelectedItem).LookupId;
+                pro.Tags = txtTags.Text;
 
                 actInd.IsRunning = actInd.IsVisible = true;
-                Task<Response<Inventory>> task = new Task<Response<Inventory>>(() => _inventoryServices.UpsertProduct(product, _imageBytes, _fileName));
+                Task<Response<Inventory>> task = new Task<Response<Inventory>>(() => _inventoryServices.UpsertProduct(pro, _imageBytes, _fileName));
                 task.Start();
 
                 var response = await task;

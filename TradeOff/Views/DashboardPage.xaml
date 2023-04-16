@@ -58,7 +58,7 @@
             <CarouselView 
                 ItemsSource="{Binding MostLiked}" 
                 Loop="False"
-                EmptyView="No items to display.">
+                EmptyView="Nothing to display">
                 <CarouselView.ItemsLayout>
                     <LinearItemsLayout 
                         Orientation="Horizontal"
@@ -107,7 +107,7 @@
             <CarouselView 
                 ItemsSource="{Binding MostDisliked}" 
                 Loop="False"
-                EmptyView="No items to display.">
+                EmptyView="Nothing to display">
                 <CarouselView.ItemsLayout>
                     <LinearItemsLayout 
                         Orientation="Horizontal"
@@ -156,7 +156,7 @@
             <CarouselView 
                 ItemsSource="{Binding MostRequested}" 
                 Loop="False"
-                EmptyView="No items to display.">
+                EmptyView="Nothing to display">
                 <CarouselView.ItemsLayout>
                     <LinearItemsLayout 
                         Orientation="Horizontal"
@@ -238,12 +238,13 @@
                                     FontAttributes="Italic"/>
                             </StackLayout>
                             <StackLayout
-                                HorizontalOptions="CenterAndExpand"
+                                HorizontalOptions="EndAndExpand"
                                 VerticalOptions="CenterAndExpand"
                                 Orientation="Horizontal">
                                     <Label
                                         Text="{Binding StateId}"
                                         FontSize="40"
+                                        Margin="0, 0, 10, 0"
                                         TextColor="LightGreen"/>
                                     <!--<Label
                                         Text=" / "

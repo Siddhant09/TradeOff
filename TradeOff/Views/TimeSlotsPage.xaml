@@ -45,20 +45,23 @@
                                 <SwipeView.RightItems>
                                     <SwipeItems>
                                         <SwipeItem 
-                                        x:Name="btnDelete"
-                                        Text="Delete" 
-                                        CommandParameter="{Binding .}"
-                                        IconImageSource="delete.png"
-                                        BackgroundColor="OrangeRed"/>
+                                            x:Name="btnDelete"
+                                            Text="Delete" 
+                                            CommandParameter="{Binding .}"
+                                            IconImageSource="delete.png"
+                                            Clicked="btnDelete_Clicked"    
+                                            BackgroundColor="OrangeRed"/>
                                     </SwipeItems>
                                 </SwipeView.RightItems>
                                 <SwipeView.LeftItems>
                                     <SwipeItems>
                                         <SwipeItem 
-                                        x:Name="btnEdit"
-                                        Text="Edit"
-                                        IconImageSource="edit.png"                                            
-                                        BackgroundColor="LightBlue" />
+                                            x:Name="btnEdit"
+                                            Text="Edit"
+                                            CommandParameter="{Binding .}"
+                                            Clicked="btnEdit_Clicked"
+                                            IconImageSource="edit.png"                                            
+                                            BackgroundColor="LightBlue" />
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
                                 <StackLayout

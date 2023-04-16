@@ -12,68 +12,18 @@ public partial class DashboardPage : ContentPage
         _dashboardServices = new DashboardServices();
         InitializeComponent();
         ddlDateRange.SelectedIndex = 0;
-        GetDataAsync(ddlDateRange.SelectedIndex);
+        //GetDataAsync();
     }
 
-    //protected override async void OnAppearing()
-    //{
-    //    await GetDataAsync();
-    //    base.OnAppearing();
-    //}
-
-    public async void GetDataAsync(int filter)
+    protected override async void OnAppearing()
     {
-        //Dashboard dashboard = new Dashboard();
-        //List<Product> mostLiked = new List<Product>();
-        //List<Product> mostDisiked = new List<Product>();
-        //List<Product> mostRequested = new List<Product>();
-        //List<Product> users = new List<Product>();
+        await GetDataAsync();
+        base.OnAppearing();
+    }
 
-        //Product item = new Product();
-        //item.Title = "Coffee Table";
-        //item.UserName = "Nithika Sanghi";
-        //item.ProfilePicUrl = "temp2.jpg";
-        //item.Date = "Member Since: " + DateTime.Now.ToShortDateString();
-        //item.Likes = 15;
-        //item.Dislikes = 5;
-        //item.PicUrl = "https://tradeoffapi.siddhantchawade.com/Content/Images/Coffee Table_1_221206072712.jpg";
-
-        //mostLiked.Add(item);
-        //mostDisiked.Add(item);
-        //mostRequested.Add(item);
-        //users.Add(item);
-
-        //Product item2 = new Product();
-        //item2.Title = "Couch";
-        //item2.UserName = "Katy Perry";
-        //item2.ProfilePicUrl = "user_profile.jpg";
-        //item2.Date = "Member Since: " + DateTime.Now.ToShortDateString(); 
-        //item2.Likes = 10;
-        //item2.Dislikes = 10;
-        //item2.PicUrl = "https://tradeoffapi.siddhantchawade.com/Content/Images/Couch_1_221205145936.jpg";
-
-        //mostLiked.Add(item2);
-        //mostDisiked.Add(item2);
-        //mostRequested.Add(item2);
-        //users.Add(item2);
-
-        //Product item3 = new Product();
-        //item3.Title = "Couch";
-        //item3.Likes = 10;
-        //item3.Dislikes = 0;
-        //item3.PicUrl = "https://tradeoffapi.siddhantchawade.com/Content/Images/Power Bank_1_221206072931.jpg";
-
-        //mostLiked.Add(item);
-        //mostLiked.Add(item2);
-        //mostDisiked.Add(item3);
-        //mostRequested.Add(item3);
-
-        //dashboard.MostLiked = mostLiked.OrderByDescending(x => x.Likes).ToList();
-        //dashboard.MostDisliked = mostDisiked.OrderByDescending(x => x.Dislikes).ToList();
-        //dashboard.MostRequested = mostRequested.OrderByDescending(x => x.Likes).ToList();
-        //dashboard.Users = users.OrderByDescending(x => x.Likes).ToList();
-        //this.BindingContext = dashboard;
-
+    public async Task GetDataAsync()
+    {
+        int filter = ddlDateRange.SelectedIndex == 0 ? 1 : (ddlDateRange.SelectedIndex == 1 ? 2 : 3);
         actInd.IsRunning = actInd.IsVisible = true;
         Task<Response<Dashboard>> task = new Task<Response<Dashboard>>(() => _dashboardServices.GetDashboard(filter));
         task.Start();
@@ -145,6 +95,6 @@ public partial class DashboardPage : ContentPage
 
     private void ddlDateRange_SelectedIndexChanged(object sender, EventArgs e)
     {
-        GetDataAsync(ddlDateRange.SelectedIndex);
+        GetDataAsync();
     }
 }
