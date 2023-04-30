@@ -6,6 +6,7 @@
     <Shell.TitleView>
         <StackLayout Orientation="Horizontal">
             <Label 
+                x:Name="lblTitle"
                 Text="Messages"
                 TextColor="White"
                 FontAttributes="Bold"
@@ -80,7 +81,7 @@
                     x:Name="txtComment"
                     AutoSize="TextChanges"
                     Margin="10"
-                    HorizontalOptions="StartAndExpand"
+                    HorizontalOptions="FillAndExpand"
                     Placeholder="Write a message"/>
                 <ImageButton
                     Source="{AppThemeBinding Light=send.png, Dark=send_white.png}"

@@ -191,8 +191,8 @@ public partial class RequestsPage : ContentPage
             Request request = (Request)a.CommandParameter;
             Product product = new Product()
             {
-                ProductId = Preferences.Default.Get("authToken", string.Empty) == request.IUserName ? request.OProductId : request.IProductId,
-                UserId = Preferences.Default.Get("authToken", string.Empty) == request.IUserName ? request.OUserId : request.IUserId
+                ProductId = Preferences.Default.Get("userName", string.Empty) == request.IUserName ? request.OProductId : request.IProductId,
+                UserId = Preferences.Default.Get("userName", string.Empty) == request.IUserName ? request.OUserId : request.IUserId
             };
             var param = new Dictionary<string, object>
                 {
@@ -215,8 +215,8 @@ public partial class RequestsPage : ContentPage
             Request request = (Request)a.CommandParameter;
             Product product = new Product()
             {
-                ProductId = Preferences.Default.Get("authToken", string.Empty) != request.IUserName ? request.OProductId : request.IProductId,
-                UserId = Preferences.Default.Get("authToken", string.Empty) != request.IUserName ? request.OUserId : request.IUserId
+                ProductId = Preferences.Default.Get("userName", string.Empty) != request.IUserName ? request.OProductId : request.IProductId,
+                UserId = Preferences.Default.Get("userName", string.Empty) != request.IUserName ? request.OUserId : request.IUserId
             };
             var param = new Dictionary<string, object>
                 {
@@ -255,6 +255,30 @@ public partial class RequestsPage : ContentPage
                     await Shell.Current.GoToAsync($"//{nameof(SignInPage)}", true);
                 }
             }
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
+    }
+
+    private async void btnMessage_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            ImageButton a = (ImageButton)sender;
+            Request request = (Request)a.CommandParameter;
+            User user = new User()
+            {
+                UserId = request.IsIncoming == true ? request.IUserId : request.OUserId,
+                FirstName = request.IsIncoming == true ? request.IUserName : request.OUserName
+            };
+            var param = new Dictionary<string, object>
+                {
+                    { "User", user }
+                };
+            await Shell.Current.GoToAsync($"{nameof(MessagesPage)}", true, param);
         }
         catch (Exception ex)
         {

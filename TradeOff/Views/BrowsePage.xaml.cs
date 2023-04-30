@@ -296,4 +296,27 @@ public partial class BrowsePage : ContentPage
             await toast.Show();
         }
     }
+
+    private async void btnMessage_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            ImageButton a = (ImageButton)sender;
+            Product product = (Product)a.CommandParameter;
+            User user = new User() { 
+                UserId = product.UserId,
+                FirstName = product.UserName
+            };
+            var param = new Dictionary<string, object>
+                {
+                    { "User", user }
+                };
+            await Shell.Current.GoToAsync($"{nameof(MessagesPage)}", true, param);
+        }
+        catch (Exception ex)
+        {
+            var toast = Toast.Make("Error: " + ex.Message);
+            await toast.Show();
+        }
+    }
 }

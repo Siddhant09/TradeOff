@@ -4,10 +4,21 @@ using TradeOff.Services;
 
 namespace TradeOff.Views;
 
+[QueryProperty(nameof(User), "User")]
 public partial class MessagesPage : ContentPage
 {
     ProfileServices _profileServices;
-    long? userId = null;
+
+    User user;
+    public User User
+    {
+        get => user;
+        set
+        {
+            user = value;
+            OnPropertyChanged();
+        }
+    }
 
     public MessagesPage()
 	{
@@ -19,6 +30,9 @@ public partial class MessagesPage : ContentPage
     {
         GetDataAsync();
         base.OnAppearing();
+
+        if (user != null)
+            lblTitle.Text = user.FirstName;
     }
 
     public async void GetDataAsync()
@@ -31,7 +45,7 @@ public partial class MessagesPage : ContentPage
         //this.BindingContext = data;
 
         actInd.IsRunning = actInd.IsVisible = true;
-        Task<Response<List<Notification>>> task = new Task<Response<List<Notification>>>(() => _profileServices.GetMessages(userId));
+        Task<Response<List<Notification>>> task = new Task<Response<List<Notification>>>(() => _profileServices.GetMessages(user.UserId));
         task.Start();
 
         var response = await task;
@@ -63,7 +77,7 @@ public partial class MessagesPage : ContentPage
             actInd.IsRunning = actInd.IsVisible = true;
             Notification message = new Notification();
             message.Message = txtComment.Text;
-            message.ToUserId = userId;
+            message.ToUserId = user.UserId;
             Task<Response<List<Notification>>> task = new Task<Response<List<Notification>>>(() => _profileServices.SendMessage(message));
             task.Start();
 
@@ -72,7 +86,10 @@ public partial class MessagesPage : ContentPage
             {
                 actInd.IsRunning = actInd.IsVisible = false;
                 if (response.Success)
+                {
+                    txtComment.Text = string.Empty;
                     this.BindingContext = response.Data;
+                }
 
                 var toast = Toast.Make(response.Message);
                 await toast.Show();

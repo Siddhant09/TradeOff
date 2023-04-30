@@ -59,7 +59,15 @@ public partial class InboxPage : ContentPage
     {
         try
         {
-            await Shell.Current.GoToAsync($"{nameof(MessagesPage)}", true);
+            Notification message = (Notification)inboxList.SelectedItem;
+            User user = new User() { 
+                UserId = message.ToUserId, 
+                FirstName = message.ToUserName };
+            var param = new Dictionary<string, object>
+                {
+                    { "User", user }
+                };
+            await Shell.Current.GoToAsync($"{nameof(MessagesPage)}", true, param);
         }
         catch (Exception ex)
         {

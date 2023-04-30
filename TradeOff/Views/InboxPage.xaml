@@ -26,6 +26,7 @@
         <StackLayout Grid.Row="0" Grid.Column="0"
         Orientation="Vertical">
             <ListView    
+                x:Name="inboxList"
             ItemsSource="{Binding .}"
             RowHeight="70"
             SelectionMode="Single"

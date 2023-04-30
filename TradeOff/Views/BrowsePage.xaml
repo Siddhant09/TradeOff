@@ -97,6 +97,16 @@
                                         Margin="5"
                                             WidthRequest="25"
                                             />
+                                    <ImageButton
+                                        x:Name="btnMessage"
+                                        Clicked="btnMessage_Clicked"
+                                            CommandParameter="{Binding .}"
+                                            Source="{AppThemeBinding Light=send.png, Dark=send_white.png}"
+                                            HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        Margin="5"
+                                            WidthRequest="25"
+                                            />
                                 </StackLayout>
                             </StackLayout>
                         <CarouselView 

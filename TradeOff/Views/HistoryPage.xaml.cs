@@ -53,8 +53,8 @@ public partial class HistoryPage : ContentPage
             ImageButton a = (ImageButton)sender;
             Request request = (Request)a.CommandParameter;
             Product product = new Product() { 
-                ProductId = Preferences.Default.Get("authToken", string.Empty) == request.IUserName ? request.OProductId : request.IProductId,
-                UserId = Preferences.Default.Get("authToken", string.Empty) == request.IUserName ? request.OUserId : request.IUserId
+                ProductId = Preferences.Default.Get("userName", string.Empty) == request.IUserName ? request.OProductId : request.IProductId,
+                UserId = Preferences.Default.Get("userName", string.Empty) == request.IUserName ? request.OUserId : request.IUserId
             };
             var param = new Dictionary<string, object>
                 {
